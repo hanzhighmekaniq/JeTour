@@ -2,8 +2,6 @@
 # JeTour
 Aplikasi Pariwisata Kabupaten Jember
 =======
-# JemberSpot
-
 Website inovasi media digital untuk meningkatkan eksposur pariwisata di jember
 
 ## Prerequisite
