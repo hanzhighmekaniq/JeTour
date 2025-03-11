@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # JeTour
 Aplikasi Pariwisata Kabupaten Jember
 =======
@@ -67,4 +66,3 @@ Akses aplikasi di browser
 ```bash
   http://127.0.0.1:8000/
 ```
->>>>>>> 2e52c42 (First Commit)
