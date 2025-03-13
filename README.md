@@ -34,7 +34,7 @@ Clone repository
 Masuk ke direktori proyek
 
 ```bash
-  cd Syntara
+  cd JeTour
 ```
 
 Instal dependensi PHP dengan Composer
