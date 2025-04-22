@@ -1,6 +1,9 @@
 # JeTour
 Aplikasi Pariwisata Kabupaten Jember
+=======
+Website inovasi media digital untuk meningkatkan eksposur pariwisata di jember
 
+## Prerequisite
 
 Untuk menjalankan aplikasi website ini, pastikan pada perangkat PC anda sudah terinstall alat-alat berikut ini
 
