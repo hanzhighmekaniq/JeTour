@@ -9,4 +9,8 @@ class adminController extends Controller
     public function index(){
         return view('admin.dashboard');
     }
+
+    public function wisata(){
+        return view('admin.wisata');
+    }
 }
