@@ -14,6 +14,5 @@ Route::view('/destination', 'pages.destination');
 
 
 
-
 Route::get('/admin/dashboard', [adminController::class, 'index'])->name('dashboard.index');
 Route::get('/admin/wisata', [adminController::class, 'wisata'])->name('admin.wisata.index');
