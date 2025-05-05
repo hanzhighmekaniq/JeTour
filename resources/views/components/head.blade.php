@@ -12,4 +12,3 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo-footer.png') }}" type="image/x-icon">
 </head>
 
-<body>
