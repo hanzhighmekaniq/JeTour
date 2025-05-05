@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import $ from "jquery";
 import "lightbox2/dist/js/lightbox.js";
 import "lightbox2/dist/css/lightbox.css";
+import "flowbite";
 
 if (window.location.pathname === "/") {
     const swiper = new Swiper(".mySwiper", {

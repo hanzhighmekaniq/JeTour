@@ -12,6 +12,8 @@ Route::view('/price', 'pages.ticketing');
 Route::view('/food', 'pages.food');
 Route::view('/destination', 'pages.destination');
 
-Route::get('/admin/dashboard', [adminController::class, 'index'])->name('dashboard.index');
-Route::get('/admin/wisata', [adminController::class, 'wisata'])->name('wisata.index');
 
+
+
+Route::get('/admin/dashboard', [adminController::class, 'index'])->name('dashboard.index');
+Route::get('/admin/wisata', [adminController::class, 'wisata'])->name('admin.wisata.index');

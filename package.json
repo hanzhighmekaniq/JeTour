@@ -10,6 +10,7 @@
         "clean": "rm -rf public/js/* public/css/* public/mix-manifest.json"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "^4.1.5",
         "@types/leaflet": "^1.9.12",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
@@ -20,8 +21,10 @@
         "lightbox2": "^2.11.5",
         "postcss": "^8.4.47",
         "swiper": "^11.1.14",
-        "tailwindcss": "^3.4.13",
+        "tailwindcss": "^3.4.17",
         "vite": "^6.2.0"
+    },
+    "dependencies": {
+        "flowbite": "^3.1.2"
     }
-
 }
