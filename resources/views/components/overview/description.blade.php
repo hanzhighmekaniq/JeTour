@@ -74,7 +74,7 @@
                 <div class="mt-3">
                     <h4 class="text-xs">Kenyamanan</h4>
                     <div class="flex items-center">
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
                             <div class="bg-softPrimary h-2.5 rounded-full" style="width: 95%"></div>
                         </div>
                         <p class="pl-5">4.9</p>
@@ -83,7 +83,7 @@
                 <div class="mt-1">
                     <h4 class="text-xs">Fasilitas</h4>
                     <div class="flex items-center">
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
                             <div class="bg-softPrimary h-2.5 rounded-full" style="width: 90%"></div>
                         </div>
                         <p class="pl-5">4.8</p>
@@ -92,7 +92,7 @@
                 <div class="mt-1">
                     <h4 class="text-xs">Makanan</h4>
                     <div class="flex items-center">
-                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-200">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
                             <div class="bg-softPrimary h-2.5 rounded-full" style="width: 100%"></div>
                         </div>
                         <p class="pl-5">5.0</p>
