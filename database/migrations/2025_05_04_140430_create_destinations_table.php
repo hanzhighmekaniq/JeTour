@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('content');
             $table->string('fasility');
             $table->string('location');
+            $table->double('latitude');
+            $table->double('longitude');
+            $table->decimal('price');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
     }
