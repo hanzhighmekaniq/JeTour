@@ -9,7 +9,7 @@
                 </div>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ route('admin.dashboard.index') }}"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -24,7 +24,26 @@
             </li>
 
             <li>
-                <a href="{{ route('admin.wisata.index') }}"
+                <a href="#"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
+                            viewBox="0 0 35 35" style="enable-background:new 0 0 512 512" xml:space="preserve">
+                            <g>
+                                <path
+                                    d="M11.933 15.055H3.479A3.232 3.232 0 0 1 .25 11.827V3.478A3.232 3.232 0 0 1 3.479.25h8.454a3.232 3.232 0 0 1 3.228 3.228v8.349a3.232 3.232 0 0 1-3.228 3.228zM3.479 2.75a.73.73 0 0 0-.729.728v8.349a.73.73 0 0 0 .729.728h8.454a.729.729 0 0 0 .728-.728V3.478a.729.729 0 0 0-.728-.728zM11.974 34.75H3.52a3.233 3.233 0 0 1-3.229-3.229v-8.348a3.232 3.232 0 0 1 3.229-3.228h8.454a3.232 3.232 0 0 1 3.226 3.228v8.348a3.232 3.232 0 0 1-3.226 3.229zM3.52 22.445a.73.73 0 0 0-.729.728v8.348a.73.73 0 0 0 .729.729h8.454a.73.73 0 0 0 .728-.729v-8.348a.729.729 0 0 0-.728-.728zM31.522 34.75h-8.454a3.233 3.233 0 0 1-3.229-3.229v-8.348a3.232 3.232 0 0 1 3.229-3.228h8.454a3.232 3.232 0 0 1 3.228 3.228v8.348a3.232 3.232 0 0 1-3.228 3.229zm-8.454-12.3a.73.73 0 0 0-.729.728v8.348a.73.73 0 0 0 .729.729h8.454a.73.73 0 0 0 .728-.729v-8.353a.729.729 0 0 0-.728-.728zM27.3 15.055a7.4 7.4 0 1 1 7.455-7.4 7.437 7.437 0 0 1-7.455 7.4zm0-12.3a4.9 4.9 0 1 0 4.955 4.9A4.935 4.935 0 0 0 27.3 2.75z"
+                                    fill="#000000" opacity="1" data-original="#000000"></path>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Kategori</span>
+                    <span
+                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.destination.index') }}"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -86,8 +105,61 @@
                     <span class="inline-flex justify-center items-center ml-4">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                             xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
-                            viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
                             class="">
+                            <g>
+                                <path
+                                    d="M417.231 92.523a238.384 238.384 0 0 0-44.99-32.753v194.194l-3.759-.297-225.56-81.61-3.162-2.207V59.761C67.367 100.463 18.454 177.99 18.454 266.954c0 74.077 33.912 140.228 87.052 183.792"
+                                    style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"
+                                    class=""></path>
+                                <path
+                                    d="M134.593 471.156C170.123 492.326 211.637 504.5 256 504.5c131.193 0 237.546-106.353 237.546-237.546 0-56.35-19.634-108.107-52.416-148.832"
+                                    style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"
+                                    class=""></path>
+                                <path
+                                    d="M372.24 253.964V17.502c0-5.524-4.478-10.002-10.002-10.002H149.762c-5.524 0-10.002 4.478-10.002 10.002v152.349"
+                                    style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"
+                                    class=""></path>
+                                <path
+                                    d="M196.082 155.684v34.545l34.755 12.575v-47.12c12.045-6.28 20.274-18.875 20.274-33.399V46.542c0-5.762-4.671-10.433-10.433-10.433H186.24c-5.762 0-10.433 4.671-10.433 10.433v75.743c.001 14.524 8.229 27.118 20.275 33.399zM200.959 101.225V36.109M225.959 36.109v65.116M336.192 240.921V39.239a3.13 3.13 0 0 0-3.13-3.13h0c-27.384 0-49.583 22.199-49.583 49.583V221.85l52.713 19.071z"
+                                    style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"
+                                    class=""></path>
+                                <path
+                                    d="M139.76 290v139.998c0 5.524 4.478 10.002 10.002 10.002h212.477c5.524 0 10.002-4.478 10.002-10.002V253.964L139.76 169.851V255"
+                                    style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"
+                                    class=""></path>
+                                <path
+                                    d="M372.24 376.891C399.363 348.224 416 309.533 416 266.954s-16.637-81.27-43.76-109.938M139.76 157.016C112.637 185.683 96 224.374 96 266.954s16.637 81.27 43.76 109.938"
+                                    style="stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    fill="none" stroke="#000000" stroke-width="15" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-miterlimit="10" data-original="#000000"
+                                    class=""></path>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Kuliner</span>
+                    <span
+                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
+                            viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512 512"
+                            xml:space="preserve" class="">
                             <g>
                                 <path
                                     d="M504.422 266.124h-9.793c-8.204 0-14.878-6.674-14.878-14.878s6.673-14.878 14.877-14.878h9.793a7.577 7.577 0 0 0 7.579-7.579v-45.47a7.577 7.577 0 0 0-7.579-7.579h-9.793c-8.204 0-14.878-6.674-14.878-14.878v-2.756l11.117-10.183a7.58 7.58 0 0 0 .637-10.52l-29.585-34.529a7.575 7.575 0 0 0-5.173-2.625 7.514 7.514 0 0 0-5.513 1.801l-7.437 6.373c-6.23 5.337-15.642 4.611-20.979-1.618a14.777 14.777 0 0 1-3.536-10.825 14.775 14.775 0 0 1 5.154-10.154l7.437-6.373a7.577 7.577 0 0 0 .824-10.686L403.11 34.239a7.58 7.58 0 0 0-10.686-.824l-7.438 6.372a14.768 14.768 0 0 1-10.824 3.536 14.775 14.775 0 0 1-10.154-5.154l-9.922-11.581a7.575 7.575 0 0 0-5.173-2.625 7.562 7.562 0 0 0-5.513 1.801L212.373 138.032h-21.635a7.577 7.577 0 0 0-7.579 7.579 7.577 7.577 0 0 0 7.579 7.579h273.855v7.672c0 16.562 13.474 30.036 30.036 30.036h2.214v30.312h-2.214c-16.562 0-30.036 13.474-30.036 30.036s13.474 30.036 30.036 30.036h2.214v30.312h-2.214c-16.562 0-30.036 13.473-30.036 30.035v17.182h-52.404c-4.187 0-7.579 3.392-7.579 7.579s3.392 7.579 7.579 7.579h59.983a7.577 7.577 0 0 0 7.579-7.579v-24.761c0-8.203 6.674-14.877 14.878-14.877h9.793a7.577 7.577 0 0 0 7.579-7.579v-45.47a7.577 7.577 0 0 0-7.579-7.579zM235.67 138.032l111.836-95.824 4.991 5.826c5.219 6.093 12.5 9.788 20.499 10.404 7.998.615 15.759-1.918 21.852-7.138l1.683-1.441 19.723 23.017-1.682 1.442c-12.576 10.775-14.042 29.774-3.265 42.351 10.777 12.576 29.776 14.041 42.351 3.265l1.682-1.442 16.743 19.54H235.67zM345.666 358.81H47.409v-7.671c0-16.562-13.474-30.036-30.036-30.036h-2.215v-30.312h2.215c16.562 0 30.036-13.474 30.036-30.036s-13.474-30.036-30.036-30.036h-2.215v-30.312h2.215c16.562 0 30.036-13.474 30.036-30.036v-17.182h86.493c4.187 0 7.579-3.392 7.579-7.579s-3.392-7.579-7.579-7.579H39.83a7.577 7.577 0 0 0-7.579 7.579v24.761c0 8.203-6.674 14.878-14.878 14.878H7.579A7.577 7.577 0 0 0 0 192.828v45.47a7.577 7.577 0 0 0 7.579 7.579h9.794c8.203 0 14.878 6.674 14.878 14.878s-6.674 14.878-14.878 14.878H7.579A7.577 7.577 0 0 0 0 283.212v45.47a7.577 7.577 0 0 0 7.579 7.579h9.794c8.203 0 14.878 6.674 14.878 14.878v4.098l-10.708 8.492a7.58 7.58 0 0 0-1.046 10.869l29.584 34.529a7.575 7.575 0 0 0 5.173 2.625 7.52 7.52 0 0 0 5.513-1.801l7.438-6.373c3.018-2.587 6.862-3.851 10.824-3.536a14.775 14.775 0 0 1 10.154 5.154c5.338 6.23 4.612 15.641-1.618 20.979l-7.437 6.372a7.577 7.577 0 0 0-.824 10.686l29.584 34.529a7.576 7.576 0 0 0 10.686.824l7.438-6.372a14.779 14.779 0 0 1 10.824-3.536 14.775 14.775 0 0 1 10.154 5.154l9.922 11.58a7.565 7.565 0 0 0 5.759 2.648 7.544 7.544 0 0 0 4.927-1.824l130.796-112.069c.073-.063.136-.131.207-.196h46.061c4.187 0 7.579-3.392 7.579-7.579s-3.388-7.582-7.575-7.582zM164.495 469.792l-4.991-5.825c-5.219-6.093-12.499-9.788-20.499-10.404-7.999-.621-15.759 1.918-21.852 7.138l-1.683 1.441-19.723-23.018 1.682-1.441c6.092-5.22 9.788-12.5 10.404-20.5.616-7.999-1.918-15.76-7.138-21.852-5.219-6.093-12.499-9.788-20.499-10.404-7.997-.607-15.759 1.919-21.852 7.138l-1.682 1.442-16.744-19.54H276.33l-111.835 95.825z"
@@ -102,6 +174,51 @@
                         </svg>
                     </span>
                     <span class="ml-2 text-sm tracking-wide truncate">Tiket</span>
+                    <span
+                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                    <span class="inline-flex justify-center items-center ml-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            class="">
+                            <g>
+                                <path
+                                    d="M298.667 384h-85.333a8.53 8.53 0 0 0-8.533 8.533v59.733a8.53 8.53 0 0 0 8.533 8.533h85.333a8.525 8.525 0 0 0 8.533-8.533v-59.733a8.525 8.525 0 0 0-8.533-8.533zm-8.534 59.733h-68.267v-42.667h68.267v42.667z"
+                                    fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                <path d="M247.467 392.533h17.067v59.733h-17.067z" fill="#000000" opacity="1"
+                                    data-original="#000000" class=""></path>
+                                <path
+                                    d="M341.333 51.2H170.667a8.536 8.536 0 0 0-8.533 8.533v392.533a8.53 8.53 0 0 0 8.533 8.533h170.667a8.525 8.525 0 0 0 8.533-8.533V59.733a8.531 8.531 0 0 0-8.534-8.533zM332.8 443.733H179.2V68.267h153.6v375.466z"
+                                    fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                <path
+                                    d="M170.667 85.333H102.4a8.536 8.536 0 0 0-8.533 8.533v358.4a8.53 8.53 0 0 0 8.533 8.533h68.267a8.53 8.53 0 0 0 8.533-8.533v-358.4a8.536 8.536 0 0 0-8.533-8.533zm-8.534 358.4h-51.2V102.4h51.2v341.333z"
+                                    fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                <path
+                                    d="M76.8 85.333h25.6V102.4H76.8zM145.067 51.2h221.867v17.067H145.067zM196.267 341.333h17.067v25.6h-17.067zM230.4 341.333h17.067v25.6H230.4zM264.533 341.333H281.6v25.6h-17.067zM298.667 341.333h17.067v25.6h-17.067zM196.267 298.667h17.067v25.6h-17.067zM230.4 298.667h17.067v25.6H230.4zM264.533 298.667H281.6v25.6h-17.067zM298.667 298.667h17.067v25.6h-17.067zM196.267 256h17.067v25.6h-17.067zM230.4 256h17.067v25.6H230.4zM264.533 256H281.6v25.6h-17.067zM298.667 256h17.067v25.6h-17.067zM196.267 213.333h17.067v25.6h-17.067zM230.4 213.333h17.067v25.6H230.4zM264.533 213.333H281.6v25.6h-17.067zM298.667 213.333h17.067v25.6h-17.067zM196.267 170.667h17.067v25.6h-17.067zM230.4 170.667h17.067v25.6H230.4zM264.533 170.667H281.6v25.6h-17.067zM298.667 170.667h17.067v25.6h-17.067zM196.267 128h17.067v25.6h-17.067zM230.4 128h17.067v25.6H230.4zM264.533 128H281.6v25.6h-17.067zM298.667 128h17.067v25.6h-17.067zM196.267 85.333h17.067v25.6h-17.067zM230.4 85.333h17.067v25.6H230.4zM264.533 85.333H281.6v25.6h-17.067zM298.667 85.333h17.067v25.6h-17.067zM128 384h17.067v25.6H128zM128 341.333h17.067v25.6H128zM128 298.667h17.067v25.6H128zM128 256h17.067v25.6H128zM128 213.333h17.067v25.6H128zM128 170.667h17.067v25.6H128zM128 128h17.067v25.6H128zM409.6 85.333h-68.267a8.53 8.53 0 0 0-8.533 8.533v358.4a8.525 8.525 0 0 0 8.533 8.533H409.6a8.525 8.525 0 0 0 8.533-8.533v-358.4a8.53 8.53 0 0 0-8.533-8.533zm-8.533 358.4h-51.2V102.4h51.2v341.333z"
+                                    fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                <path
+                                    d="M409.6 85.333h25.6V102.4h-25.6zM366.933 384H384v25.6h-17.067zM366.933 341.333H384v25.6h-17.067zM366.933 298.667H384v25.6h-17.067zM366.933 256H384v25.6h-17.067zM366.933 213.333H384v25.6h-17.067zM366.933 170.667H384v25.6h-17.067zM366.933 128H384v25.6h-17.067zM0 443.733h102.4V460.8H0zM409.6 443.733H512V460.8H409.6z"
+                                    fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                <path d="M34.133 273.067H51.2v179.2H34.133z" fill="#000000" opacity="1"
+                                    data-original="#000000" class=""></path>
+                                <path d="m3.413 296.96 10.24-13.653 68.267 51.2-10.24 13.653z" fill="#000000"
+                                    opacity="1" data-original="#000000" class=""></path>
+                                <path
+                                    d="m3.397 334.528 68.26-51.22 10.245 13.653-68.262 51.22zM460.8 273.067h17.067v179.2H460.8z"
+                                    fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                <path d="m430.08 296.96 10.235-13.647 68.266 51.2-10.235 13.646z" fill="#000000"
+                                    opacity="1" data-original="#000000" class=""></path>
+                                <path d="m430.031 334.538 68.273-51.181 10.23 13.647-68.272 51.18z" fill="#000000"
+                                    opacity="1" data-original="#000000" class=""></path>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Penginapan</span>
                     <span
                         class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
                 </a>
