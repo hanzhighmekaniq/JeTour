@@ -19,6 +19,7 @@ class Destination extends Model
         'longitude',
         'image',
         'content',
+        'price',
         'category_id',
     ];
 

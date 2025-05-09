@@ -55,6 +55,12 @@
                                     class="mt-1 block w-full border-gray-300 rounded-md" required>
                             </div>
 
+                            <div class="flex flex-col">
+                                <label for="price" class="block text-sm font-medium text-gray-700">Harga Masuk</label>
+                                <input type="number" name="price" id="price"
+                                    class="mt-1 block w-full border-gray-300 rounded-md" required>
+                            </div>
+
                             <div class="flex flex-col md:col-span-2">
                                 <label for="content" class="block text-sm font-medium text-gray-700">Konten
                                     Tambahan</label>
