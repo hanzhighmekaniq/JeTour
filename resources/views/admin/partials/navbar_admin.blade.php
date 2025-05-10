@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 ">
+<nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 ">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
@@ -53,10 +53,13 @@
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  "
                                     role="menuitem">Earnings</a>
                             </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  "
-                                    role="menuitem">Sign out</a>
-                            </li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    Sign out
+                                </button>
+                            </form>
+
                         </ul>
                     </div>
                 </div>

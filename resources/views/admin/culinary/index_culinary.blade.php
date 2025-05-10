@@ -22,9 +22,12 @@
                                 <select name="kategori" id="kategori"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                     <option value="">All Categories</option>
-                                    <option value="makanan" {{ request('kategori') == 'makanan' ? 'selected' : '' }}>Makanan</option>
-                                    <option value="minuman" {{ request('kategori') == 'minuman' ? 'selected' : '' }}>Minuman</option>
-                                    <option value="dessert" {{ request('kategori') == 'dessert' ? 'selected' : '' }}>Dessert</option>
+                                    <option value="makanan" {{ request('kategori') == 'makanan' ? 'selected' : '' }}>
+                                        Makanan</option>
+                                    <option value="minuman" {{ request('kategori') == 'minuman' ? 'selected' : '' }}>
+                                        Minuman</option>
+                                    <option value="dessert" {{ request('kategori') == 'dessert' ? 'selected' : '' }}>
+                                        Dessert</option>
                                 </select>
                             </div>
                             <div>
@@ -42,7 +45,7 @@
 
                     <!-- Add Button -->
                     <div class="mb-4">
-                        <a href="{{ route('admin.kuliner.create') }}"
+                        <a href="{{ route('culinary.create') }}"
                             class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700">
                             Tambah Kuliner
                         </a>
@@ -53,26 +56,38 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lokasi</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Nama</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Kategori</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Lokasi</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Harga</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($kuliners as $kuliner)
+                                @foreach ($culinarys as $kuliner)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 @if ($kuliner->gambar)
                                                     <div class="flex-shrink-0 h-10 w-10">
                                                         <img class="h-10 w-10 rounded-full object-cover"
-                                                            src="{{ Storage::url($kuliner->gambar) }}" alt="{{ $kuliner->nama }}">
+                                                            src="{{ Storage::url($kuliner->gambar) }}"
+                                                            alt="{{ $kuliner->nama }}">
                                                     </div>
                                                 @endif
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">{{ $kuliner->nama }}</div>
+                                                    <div class="text-sm font-medium text-gray-900">{{ $kuliner->nama }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -83,12 +98,14 @@
                                             <div class="text-sm text-gray-900">{{ $kuliner->lokasi }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">Rp {{ number_format($kuliner->harga, 0, ',', '.') }}</div>
+                                            <div class="text-sm text-gray-900">Rp
+                                                {{ number_format($kuliner->harga, 0, ',', '.') }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <a href="{{ route('admin.kuliner.edit', $kuliner) }}"
                                                 class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <form action="{{ route('admin.kuliner.destroy', $kuliner) }}" method="POST" class="inline">
+                                            <form action="{{ route('admin.kuliner.destroy', $kuliner) }}"
+                                                method="POST" class="inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-red-600 hover:text-red-900"
@@ -103,30 +120,12 @@
 
                     <!-- Pagination -->
                     <div class="mt-4">
-                        {{ $kuliners->links() }}
+                        {{ $culinarys->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    @push('scripts')
-    <script>
-        // Auto-submit form when filters change
-        document.querySelectorAll('#searchForm select, #searchForm input').forEach(element => {
-            element.addEventListener('change', () => {
-                document.getElementById('searchForm').submit();
-            });
-        });
 
-        // Debounce search input
-        let timeout = null;
-        document.getElementById('search').addEventListener('input', function(e) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
-                document.getElementById('searchForm').submit();
-            }, 500);
-        });
-    </script>
-    @endpush
 </x-layout>

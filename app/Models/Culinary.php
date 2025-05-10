@@ -11,6 +11,14 @@ class Culinary extends Model
     use HasFactory;
     protected $table = 'culinaries';
     protected $fillable = [
-        'name',
+        'title',
+        'description',
+        'address',
+        'open',
+        'close',
+        'price',
+        'image',
+        'multiple_images',
+        'destination_id',
     ];
 }

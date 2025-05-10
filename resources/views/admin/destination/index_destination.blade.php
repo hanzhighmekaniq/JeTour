@@ -9,13 +9,13 @@
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4">
             <!-- Tombol Tambah Wisata -->
             <div>
-                <a href="{{ route('admin.destination.create') }}">
+                <a href="{{ route('destination.create') }}">
                     <button class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">+ Tambah Wisata</button>
                 </a>
             </div>
             <div class="w-full sm:w-auto">
                 <!-- Filter dan Search -->
-                <form method="GET" action="{{ route('admin.destination.index') }}" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
+                <form method="GET" action="{{ route('destination.index') }}" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
                     <select name="category" id="category"
                         class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto">
                         <option value="">Semua Kategori</option>
