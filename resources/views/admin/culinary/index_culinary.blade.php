@@ -1,131 +1,89 @@
 <x-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Kuliner') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <!-- Search and Filter Section -->
-                    <div class="mb-6">
-                        <form id="searchForm" class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            <div>
-                                <label for="search" class="block text-sm font-medium text-gray-700">Search</label>
-                                <input type="text" name="search" id="search" value="{{ request('search') }}"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                            </div>
-                            <div>
-                                <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
-                                <select name="kategori" id="kategori"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                    <option value="">All Categories</option>
-                                    <option value="makanan" {{ request('kategori') == 'makanan' ? 'selected' : '' }}>
-                                        Makanan</option>
-                                    <option value="minuman" {{ request('kategori') == 'minuman' ? 'selected' : '' }}>
-                                        Minuman</option>
-                                    <option value="dessert" {{ request('kategori') == 'dessert' ? 'selected' : '' }}>
-                                        Dessert</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="harga_min" class="block text-sm font-medium text-gray-700">Harga Min</label>
-                                <input type="number" name="harga_min" id="harga_min" value="{{ request('harga_min') }}"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                            </div>
-                            <div>
-                                <label for="harga_max" class="block text-sm font-medium text-gray-700">Harga Max</label>
-                                <input type="number" name="harga_max" id="harga_max" value="{{ request('harga_max') }}"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                            </div>
-                        </form>
-                    </div>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-                    <!-- Add Button -->
-                    <div class="mb-4">
-                        <a href="{{ route('culinary.create') }}"
-                            class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700">
-                            Tambah Kuliner
-                        </a>
-                    </div>
+    <div class="w-full p-4 sm:p-6 bg-gray-50 min-h-screen">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Data Kuliner</h1>
 
-                    <!-- Table -->
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Nama</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Kategori</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Lokasi</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Harga</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($culinarys as $kuliner)
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                @if ($kuliner->gambar)
-                                                    <div class="flex-shrink-0 h-10 w-10">
-                                                        <img class="h-10 w-10 rounded-full object-cover"
-                                                            src="{{ Storage::url($kuliner->gambar) }}"
-                                                            alt="{{ $kuliner->nama }}">
-                                                    </div>
-                                                @endif
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">{{ $kuliner->nama }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $kuliner->kategori }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $kuliner->lokasi }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">Rp
-                                                {{ number_format($kuliner->harga, 0, ',', '.') }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('admin.kuliner.edit', $kuliner) }}"
-                                                class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <form action="{{ route('admin.kuliner.destroy', $kuliner) }}"
-                                                method="POST" class="inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-600 hover:text-red-900"
-                                                    onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4">
+            <!-- Tombol Tambah Kuliner -->
+            <div>
+                <button
+                    class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">
+                    + Tambah Kuliner
+                </button>
+            </div>
 
-                    <!-- Pagination -->
-                    <div class="mt-4">
-                        {{ $culinarys->links() }}
-                    </div>
-                </div>
+            <!-- Filter dan Search -->
+            <div class="w-full sm:w-auto">
+                <form class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
+                    <select
+                        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto">
+                        <option value="">Semua Destinasi</option>
+                        <option value="1">Kota A</option>
+                        <option value="2">Kota B</option>
+                        <option value="3">Kota C</option>
+                    </select>
+                    <input type="text" placeholder="Cari nama kuliner..."
+                        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto">
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition w-full sm:w-auto">Filter</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tabel Dummy Kuliner -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow w-full">
+            <table class="min-w-[800px] w-full text-left text-sm">
+                <thead class="bg-blue-100 text-gray-700">
+                    <tr>
+                        <th class="py-3 px-4 sm:px-6">#</th>
+                        <th class="py-3 px-4 sm:px-6">Gambar</th>
+                        <th class="py-3 px-4 sm:px-6">Nama Kuliner</th>
+                        <th class="py-3 px-4 sm:px-6">Deskripsi</th>
+                        <th class="py-3 px-4 sm:px-6">Lokasi</th>
+                        <th class="py-3 px-4 sm:px-6">Jam Buka</th>
+                        <th class="py-3 px-4 sm:px-6">Jam Tutup</th>
+                        <th class="py-3 px-4 sm:px-6">Destinasi</th>
+                        <th class="py-3 px-4 sm:px-6 text-center">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-4 sm:px-6">{{ $i }}</td>
+                            <td class="py-3 px-4 sm:px-6">
+                                <img src="https://source.unsplash.com/100x70/?food&sig={{ $i }}"
+                                    alt="Kuliner" class="rounded shadow w-20 h-14 object-cover">
+                            </td>
+                            <td class="py-3 px-4 sm:px-6">Kuliner Enak {{ $i }}</td>
+                            <td class="py-3 px-4 sm:px-6">Ini adalah deskripsi singkat tentang kuliner enak
+                                ke-{{ $i }}.</td>
+                            <td class="py-3 px-4 sm:px-6">Jl. Contoh No. {{ $i }}, Kota Contoh</td>
+                            <td class="py-3 px-4 sm:px-6">08:00</td>
+                            <td class="py-3 px-4 sm:px-6">21:00</td>
+                            <td class="py-3 px-4 sm:px-6">Destinasi {{ $i }}</td>
+                            <td class="py-3 px-4 sm:px-6 text-center space-x-2">
+                                <button
+                                    class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs transition">Edit</button>
+                                <button onclick="return confirm('Yakin ingin menghapus?')"
+                                    class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs transition">Hapus</button>
+                            </td>
+                        </tr>
+                    @endfor
+                </tbody>
+            </table>
+
+            <!-- Dummy Pagination -->
+            <div class="p-4 flex justify-end space-x-2 text-sm text-gray-600">
+                <span class="px-3 py-1 border border-gray-300 rounded bg-white cursor-not-allowed">«</span>
+                <span class="px-3 py-1 border border-blue-500 text-blue-600 rounded bg-blue-100">1</span>
+                <span class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100 cursor-pointer">2</span>
+                <span class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100 cursor-pointer">3</span>
+                <span class="px-3 py-1 border border-gray-300 rounded bg-white cursor-pointer">»</span>
             </div>
         </div>
     </div>
-
 
 </x-layout>
