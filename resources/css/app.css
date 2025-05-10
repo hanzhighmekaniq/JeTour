@@ -1,9 +1,16 @@
+@import "flowbite/src/themes/default";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @plugin "flowbite/plugin";
-@import "flowbite/src/themes/default";
-@source "../../node_modules/flowbite";
+@layer base {
+    html {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+        scroll-margin-top: 100px;
+    }
+}
 
 /* Fonts Losta Masta */
 @font-face {
@@ -174,14 +181,6 @@
     font-weight: 900;
     src: url("../../public/assets/fonts/Poppins-BlackItalic.ttf")
         format("truetype");
-}
-
-@layer base {
-    html {
-        font-family: "Poppins", sans-serif;
-        scroll-behavior: smooth;
-        scroll-margin-top: 100px;
-    }
 }
 
 .active {

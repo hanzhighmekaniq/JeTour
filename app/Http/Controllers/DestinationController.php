@@ -28,7 +28,7 @@ class DestinationController extends Controller
 
         $data = $query->paginate(10)->withQueryString(); // penting agar filter & search tetap di URL saat paging
 
-        return view('admin.destination.destination', compact('data', 'categories'));
+        return view('admin.destination.index_destination', compact('data', 'categories'));
     }
 
 
