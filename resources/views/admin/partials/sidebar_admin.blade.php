@@ -24,25 +24,6 @@
             </li>
 
             <li>
-                <a href="{{ route('category.index') }}"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0"
-                            viewBox="0 0 35 35" style="enable-background:new 0 0 512 512" xml:space="preserve">
-                            <g>
-                                <path
-                                    d="M11.933 15.055H3.479A3.232 3.232 0 0 1 .25 11.827V3.478A3.232 3.232 0 0 1 3.479.25h8.454a3.232 3.232 0 0 1 3.228 3.228v8.349a3.232 3.232 0 0 1-3.228 3.228zM3.479 2.75a.73.73 0 0 0-.729.728v8.349a.73.73 0 0 0 .729.728h8.454a.729.729 0 0 0 .728-.728V3.478a.729.729 0 0 0-.728-.728zM11.974 34.75H3.52a3.233 3.233 0 0 1-3.229-3.229v-8.348a3.232 3.232 0 0 1 3.229-3.228h8.454a3.232 3.232 0 0 1 3.226 3.228v8.348a3.232 3.232 0 0 1-3.226 3.229zM3.52 22.445a.73.73 0 0 0-.729.728v8.348a.73.73 0 0 0 .729.729h8.454a.73.73 0 0 0 .728-.729v-8.348a.729.729 0 0 0-.728-.728zM31.522 34.75h-8.454a3.233 3.233 0 0 1-3.229-3.229v-8.348a3.232 3.232 0 0 1 3.229-3.228h8.454a3.232 3.232 0 0 1 3.228 3.228v8.348a3.232 3.232 0 0 1-3.228 3.229zm-8.454-12.3a.73.73 0 0 0-.729.728v8.348a.73.73 0 0 0 .729.729h8.454a.73.73 0 0 0 .728-.729v-8.353a.729.729 0 0 0-.728-.728zM27.3 15.055a7.4 7.4 0 1 1 7.455-7.4 7.437 7.437 0 0 1-7.455 7.4zm0-12.3a4.9 4.9 0 1 0 4.955 4.9A4.935 4.935 0 0 0 27.3 2.75z"
-                                    fill="#000000" opacity="1" data-original="#000000"></path>
-                            </g>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Kategori</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{ route('destination.index') }}"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
@@ -75,12 +56,10 @@
                         </svg>
                     </span>
                     <span class="ml-2 text-sm tracking-wide truncate">Wisata</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
                 </a>
             </li>
             <li>
-                <a href="{{route('culinary.index')}}"
+
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                     <span class="inline-flex justify-center items-center ml-4">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -128,8 +107,6 @@
                         </svg>
                     </span>
                     <span class="ml-2 text-sm tracking-wide truncate">Kuliner</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
                 </a>
             </li>
             <li>
@@ -174,8 +151,6 @@
                         </svg>
                     </span>
                     <span class="ml-2 text-sm tracking-wide truncate">Tiket</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
                 </a>
             </li>
             <li>
@@ -219,98 +194,14 @@
                         </svg>
                     </span>
                     <span class="ml-2 text-sm tracking-wide truncate">Penginapan</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
-                </a>
-            </li>
-
-
-            <li class="px-5">
-                <div class="flex flex-row items-center h-8">
-                    <div class="text-sm font-light tracking-wide text-gray-500">Tasks</div>
-                </div>
-            </li>
-            <li>
-                <a href="#"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Messages</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Notifications</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">1.2k</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Inbox</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Available Tasks</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Clients</span>
-                    <span
-                        class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-500 bg-green-50 rounded-full">15</span>
                 </a>
             </li>
             <li class="px-5">
                 <div class="flex flex-row items-center h-8">
-                    <div class="text-sm font-light tracking-wide text-gray-500">Settings</div>
+                    <div class="text-sm font-light tracking-wide text-gray-500">Root</div>
                 </div>
             </li>
+            <li>
             <li>
                 <a href="#"
                     class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
@@ -321,24 +212,7 @@
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                     </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                    <span class="inline-flex justify-center items-center ml-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-
-                    </span>
-                    <span class="ml-2 text-sm tracking-wide truncate">Settings</span>
+                    <span class="ml-2 text-sm tracking-wide truncate">Data User</span>
                 </a>
             </li>
             <li>
