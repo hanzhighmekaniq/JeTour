@@ -15,14 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title'); // Nama kuliner
             $table->text('description'); // Deskripsi kuliner
-            $table->text('address')->nullable(); // Alamat lokasi
-            $table->time('open')->nullable(); // Jam operasional mulai
-            $table->time('close')->nullable(); // Jam operasional tutup
-            $table->integer('price')->nullable(); // Harga mulai dari
+            $table->text('location')->nullable(); // Alamat lokasi
+            $table->longText('open')->nullable(); // Jam operasional tutup
+            $table->longText('close')->nullable(); // Jam operasional tutup
             $table->string('image')->nullable(); // Path file gambar
             $table->json('multiple_images')->nullable(); // Path file gambar
             $table->foreignId('destination_id')->constrained('destinations')->onDelete('cascade')->onUpdate('cascade');
-
             $table->timestamps();
         });
     }

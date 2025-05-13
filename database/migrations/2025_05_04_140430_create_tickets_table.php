@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->boolean('status');
             $table->time('operational');
+            $table->double('price');
             $table->timestamps();
         });
     }

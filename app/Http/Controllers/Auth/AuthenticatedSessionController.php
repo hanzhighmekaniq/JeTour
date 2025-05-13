@@ -28,11 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if (Auth::user()->hasVerifiedEmail()) {
-            return redirect()->intended(route('dashboard', absolute: false));
-        }
-
-        return redirect()->intended(route('verify', absolute: false));
+        return redirect()->intended(Route('dashboard.index'));
     }
 
     /**
@@ -46,6 +42,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('login');
     }
 }
