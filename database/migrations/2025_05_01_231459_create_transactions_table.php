@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('type');
             $table->enum('status', ['PAID', 'UNPAID']);
+            $table->integer('total_price')->nullable();
+            $table->string('payment_method')->nullable(); // contoh: 'midtrans', 'manual'
             $table->timestamps();
         });
     }

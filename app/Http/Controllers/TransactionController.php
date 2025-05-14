@@ -15,7 +15,7 @@ class TransactionController extends Controller
     public function index()
     {
         $data = Transactions::all();
-        return view('admin.transaction.index', compact('data'));
+        return view('admin.transaction.index_transaction', compact('data'));
     }
 
     public function store(Request $request)

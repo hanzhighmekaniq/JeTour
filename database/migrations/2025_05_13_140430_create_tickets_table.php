@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('destination_id');
+            $table->string('name_ticket');
             $table->string('customer_name');
-            $table->string('customer_email');
-            $table->string('customer_phone');
-            $table->boolean('status');
-            $table->time('operational');
-            $table->double('price');
-            $table->unsignedBigInteger('excurtion_id');
-            $table->foreign('excurtion_id')->references('id')->on('excurtions')->onDelete('restrict')->onUpdate('cascade');
+            $table->longText('rules');
+            $table->double('price')->default(0);
+            $table->longText('open')->nullable();
+            $table->time('close')->nullable();
+            $table->enum('type', ['Regular', 'Special']);
+            $table->enum('status', ['Active', 'Expired']);
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('destination_id')->constrained('destinations')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
     }

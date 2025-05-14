@@ -10,6 +10,7 @@ use App\Http\Controllers\ExcurtionController;
 use App\Http\Controllers\LodgingController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\Transaction;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,7 +33,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::resource('culinary', CulinaryController::class);
     Route::resource('lodging', LodgingController::class);
     Route::resource('category', CategoryController::class);
-    Route::resource('transaction', Transaction::class);
+    Route::resource('transaction', TransactionController::class);
     Route::resource('excurtion', ExcurtionController::class);
     Route::resource('ticket', TicketController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
