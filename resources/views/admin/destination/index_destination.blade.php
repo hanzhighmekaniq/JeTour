@@ -1,9 +1,5 @@
 <x-layout>
 
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
-
     <div class="w-full p-4 sm:p-6 bg-gray-50 min-h-screen">
         <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Data Wisata</h1>
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4">
@@ -52,7 +48,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    @foreach ($data as $index => $destination)
+                    @forelse ($data as $index => $destination)
                         <tr class="hover:bg-gray-100">
                             <td class="py-3 px-4 sm:px-6">{{ $data->firstItem() + $index }}</td>
                             <td class="py-3 px-4 sm:px-6">{{ $destination->name }}</td>
@@ -77,11 +73,15 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="8" class="text-center py-4">Data  belum tersedia.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
             <!-- Pagination -->
-            <div class="py-4">
+            <div class="py-4 border">
                 {{ $data->links() }}
             </div>
         </div>

@@ -5,9 +5,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\CulinaryController;
-use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExcurtionController;
+use App\Http\Controllers\LodgingController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\Transaction;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,9 +31,11 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('destination', DestinationController::class);
     Route::resource('culinary', CulinaryController::class);
-    Route::resource('penginapan', PenginapanController::class);
+    Route::resource('lodging', LodgingController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('transaction', TransactionController::class);
     Route::resource('excurtion', ExcurtionController::class);
+    Route::resource('ticket', TicketController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
