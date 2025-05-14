@@ -11,31 +11,7 @@ class CulinaryController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Culinary::query();
-
-        // Search functionality
-        if ($request->has('search')) {
-            $search = $request->search;
-            $query->where(function ($q) use ($search) {
-                $q->where('nama', 'like', "%{$search}%")
-                    ->orWhere('deskripsi', 'like', "%{$search}%")
-                    ->orWhere('lokasi', 'like', "%{$search}%");
-            });
-        }
-        if ($request->has('kategori')) {
-            $query->where('kategori', $request->kategori);
-        }
-
-        if ($request->has('harga_min')) {
-            $query->where('harga', '>=', $request->harga_min);
-        }
-
-        if ($request->has('harga_max')) {
-            $query->where('harga', '<=', $request->harga_max);
-        }
-
-        $culinarys = $query->latest()->paginate(10);
-
+$culinarys = Culinary::with("destination")->paginate(10);
         return view('admin.culinary.index_culinary', compact('culinarys'));
     }
 

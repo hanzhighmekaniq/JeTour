@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Penginapan;
+use App\Models\Lodging;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class PenginapanController extends Controller
+class LodgingController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Penginapan::query();
+        $query = Lodging::query();
 
         // Search by name
         if ($request->has('search')) {
@@ -30,14 +31,14 @@ class PenginapanController extends Controller
             $query->where('harga', '<=', $request->harga_max);
         }
 
-        $penginapans = $query->paginate(10);
+        $lodgings = $query->paginate(10);
 
-        return view('admin.penginapan.index', compact('penginapans'));
+        return view('admin.lodging.index_lodging', compact('lodgings'));
     }
 
     public function create()
     {
-        return view('admin.penginapan.create');
+        return view('admin.lodging.create_lodging');
     }
 
     public function store(Request $request)
@@ -52,21 +53,21 @@ class PenginapanController extends Controller
         ]);
 
         if ($request->hasFile('gambar')) {
-            $validated['gambar'] = $request->file('gambar')->store('penginapan', 'public');
+            $validated['gambar'] = $request->file('gambar')->store('lodging', 'public');
         }
 
-        Penginapan::create($validated);
+        Lodging::create($validated);
 
-        return redirect()->route('admin.penginapan.index')
-            ->with('success', 'Penginapan berhasil ditambahkan.');
+        return redirect()->route('admin.lodging.index_lodging')
+            ->with('success', 'lodging berhasil ditambahkan.');
     }
 
-    public function edit(Penginapan $penginapan)
+    public function edit(Lodging $lodging)
     {
-        return view('admin.penginapan.edit', compact('penginapan'));
+        return view('admin.lodging.edit', compact('lodging'));
     }
 
-    public function update(Request $request, Penginapan $penginapan)
+    public function update(Request $request, Lodging $lodging)
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
@@ -79,27 +80,27 @@ class PenginapanController extends Controller
 
         if ($request->hasFile('gambar')) {
             // Delete old image
-            if ($penginapan->gambar) {
-                Storage::disk('public')->delete($penginapan->gambar);
+            if ($lodging->gambar) {
+                Storage::disk('public')->delete($lodging->gambar);
             }
-            $validated['gambar'] = $request->file('gambar')->store('penginapan', 'public');
+            $validated['gambar'] = $request->file('gambar')->store('lodging', 'public');
         }
 
-        $penginapan->update($validated);
+        $lodging->update($validated);
 
-        return redirect()->route('admin.penginapan.index')
-            ->with('success', 'Penginapan berhasil diperbarui.');
+        return redirect()->route('admin.lodging.index')
+            ->with('success', 'lodging berhasil diperbarui.');
     }
 
-    public function destroy(Penginapan $penginapan)
+    public function destroy(Lodging $lodging)
     {
-        if ($penginapan->gambar) {
-            Storage::disk('public')->delete($penginapan->gambar);
+        if ($lodging->gambar) {
+            Storage::disk('public')->delete($lodging->gambar);
         }
 
-        $penginapan->delete();
+        $lodging->delete();
 
-        return redirect()->route('admin.penginapan.index')
-            ->with('success', 'Penginapan berhasil dihapus.');
+        return redirect()->route('admin.lodging.index')
+            ->with('success', 'lodging berhasil dihapus.');
     }
 }

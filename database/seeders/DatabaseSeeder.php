@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
             'latitude' => '-7.274444',
             'longitude' => '110.403611',
             'image' => 'puger.jpg',
+            'price' => '90000',
             'content' => 'Puger adalah tempat wisata yang berada di Kecamatan Puger, Kabupaten Tangerang, Provinsi Bantul, Yogyakarta.',
             'category_id' => 2,
         ]);

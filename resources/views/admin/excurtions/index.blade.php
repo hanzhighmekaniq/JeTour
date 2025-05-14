@@ -288,5 +288,4 @@
             </div>
         </div>
     @endforeach
-
 </x-layout>

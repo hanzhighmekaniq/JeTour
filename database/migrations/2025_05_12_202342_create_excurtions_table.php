@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('open');
             $table->string('close');
             $table->longText('rules');
-            $table->unsignedBigInteger('destination_id');
-            $table->foreign('destination_id')->references('id')->on('destinations')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreignId('destination_id')->constrained('destinations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

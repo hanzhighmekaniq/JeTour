@@ -1,5 +1,6 @@
 <x-layout>
 
+
     <div class="w-full p-4 sm:p-6 bg-gray-50 min-h-screen">
         <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Data Wisata</h1>
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4">
@@ -43,6 +44,7 @@
                         <th class="py-3 px-4 sm:px-6">Nama Wisata</th>
                         <th class="py-3 px-4 sm:px-6">Kategori</th>
                         <th class="py-3 px-4 sm:px-6">Lokasi</th>
+                        <th class="py-3 px-4 sm:px-6">Harga Tiket</th>
                         <th class="py-3 px-4 sm:px-6">Status</th>
                         <th class="py-3 px-4 sm:px-6 text-center">Aksi</th>
                     </tr>
@@ -54,17 +56,18 @@
                             <td class="py-3 px-4 sm:px-6">{{ $destination->name }}</td>
                             <td class="py-3 px-4 sm:px-6">{{ $destination->category->name ?? 'N/A' }}</td>
                             <td class="py-3 px-4 sm:px-6">{{ $destination->location }}</td>
+                            <td class="py-3 px-4 sm:px-6">Rp {{ number_format($destination->price, 0, ',', '.') }}</td>
                             <td class="py-3 px-4 sm:px-6">
                                 <span
                                     class="inline-block px-2 py-1 text-xs text-white bg-green-500 rounded">Aktif</span>
                             </td>
                             <td class="py-3 px-4 sm:px-6 text-center space-x-2">
-                                <a href="{{ route('destination.edit', $destination->id) }}"
+                                <a href="{{ route('admin.destination.edit', $destination->id) }}"
                                     class="inline-block mb-1 sm:mb-0">
                                     <button
                                         class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs transition">Edit</button>
                                 </a>
-                                <form action="{{ route('destination.destroy', $destination->id) }}"
+                                <form action="{{ route('admin.destination.destroy', $destination->id) }}"
                                     method="POST" class="inline-block">
                                     @csrf
                                     @method('DELETE')

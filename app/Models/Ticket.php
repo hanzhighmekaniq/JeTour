@@ -17,4 +17,8 @@ class Ticket extends Model
         'destination_id',
     ];
 
+    public function destination()
+    {
+        return $this->belongsTo(Destination::class, 'destination_id', 'id');
+    }
 }
