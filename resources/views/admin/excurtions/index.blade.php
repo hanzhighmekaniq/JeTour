@@ -1,6 +1,6 @@
 <x-layout>
     <div class="w-full p-4 sm:p-6 bg-gray-50 min-h-screen">
-        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Data Kategori</h1>
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Data Wisata</h1>
         <div class="flex justify-between items-center pb-4">
             <div>
                 <button data-modal-target="modal_create_excurtion" data-modal-toggle="modal_create_excurtion"
@@ -36,7 +36,7 @@
                                         <label for="name"
                                             class="block text-sm font-medium text-gray-700">Kategori</label>
                                         <input type="text" name="name" id="name" required
-                                            placeholder="Enter excurtion name"
+                                            placeholder="Masukan Nama Tamasya"
                                             class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                     </div>
                                     <div>

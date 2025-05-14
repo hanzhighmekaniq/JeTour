@@ -13,18 +13,15 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('destination_id');
-            $table->string('customer_name');
-            $table->string('customer_email');
-            $table->string('customer_phone');
-            $table->boolean('status');
-            $table->time('operational');
+            $table->unsignedBigInteger('excursion_id');
+            $table->foreign('excursion_id')->references('id')->on('excurtions')->onDelete('restrict')->onUpdate('cascade');
+            $table->enum('status', ['Aktif', 'Inaktif'])->nullable();
             $table->double('price');
-            $table->unsignedBigInteger('excurtion_id');
-            $table->foreign('excurtion_id')->references('id')->on('excurtions')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
+
     }
+
 
     /**
      * Reverse the migrations.
