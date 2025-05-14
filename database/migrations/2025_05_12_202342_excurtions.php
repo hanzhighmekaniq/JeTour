@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('excurtions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('open');
+            $table->string('close');
+            $table->longText('rules');
             $table->unsignedBigInteger('destination_id');
-            $table->string('title');
-            $table->boolean('status');
-            $table->time('operational');
-            $table->double('price');
+            $table->foreign('destination_id')->references('id')->on('destinations')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('excurtions');
     }
 };

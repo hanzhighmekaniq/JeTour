@@ -56,7 +56,6 @@ class DestinationController extends Controller
                 'fasility' => 'required',
                 'latitude' => 'required',
                 'longitude' => 'required',
-                'price' => 'required',
                 'category_id' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -74,11 +73,10 @@ class DestinationController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'image' => $imageName,
-            'price' => $request->price,
             'category_id' => $request->category_id,
         ]);
 
-            return redirect()->route('admin.destination.index')->with('success', 'Destination created successfully');
+            return redirect()->route('destination.index')->with('success', 'Destination created successfully');
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
@@ -151,7 +149,7 @@ class DestinationController extends Controller
                 'category_id' => $request->category_id
             ]);
 
-            return redirect()->route('admin.destination.index')->with('success', 'Destination updated successfully');
+            return redirect()->route('destination.index')->with('success', 'Destination updated successfully');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error updating destination: ' . $e->getMessage());
         }

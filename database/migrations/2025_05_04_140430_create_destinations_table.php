@@ -21,10 +21,8 @@ return new class extends Migration
             $table->string('location');
             $table->double('latitude');
             $table->double('longitude');
-            $table->decimal('price');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict')->onUpdate('cascade');
-            $table->foreignId('id_wisata')->constrained('data_wisata')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

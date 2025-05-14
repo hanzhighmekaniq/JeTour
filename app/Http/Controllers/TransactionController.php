@@ -11,6 +11,13 @@ use App\Models\Transactions;
 
 class TransactionController extends Controller
 {
+
+    public function index()
+    {
+        $data = Transactions::all();
+        return view('admin.transaction.index', compact('data'));
+    }
+
     public function store(Request $request)
     {
         $client = new TriPayClient(

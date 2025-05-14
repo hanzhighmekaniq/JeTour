@@ -29,6 +29,11 @@ class Destination extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    public function excurtion(): HasMany
+    {
+        return $this->hasMany(Excurtion::class, 'destination_id', 'id');
+    }
+
     public function culinary(): HasMany
     {
         return $this->hasMany(Destination::class, 'category_id','id');

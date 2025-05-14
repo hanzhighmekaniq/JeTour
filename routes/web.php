@@ -7,6 +7,7 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\CulinaryController;
 use App\Http\Controllers\PenginapanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExcurtionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::resource('culinary', CulinaryController::class);
     Route::resource('penginapan', PenginapanController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('excurtion', ExcurtionController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
