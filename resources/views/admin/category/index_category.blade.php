@@ -52,8 +52,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <div>
                 <form method="GET" action=""
@@ -95,11 +93,14 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="text-center py-4 text-gray-500">Tidak ada kategori ditemukan.</td>
+                            <td colspan="8" class="text-center py-4">Data kategori belum tersedia.</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
+            <div class="py-4 border">
+                {{ $categories->links() }}
+            </div>
         </div>
     </div>
 
@@ -153,7 +154,6 @@
             </div>
         </div>
     @endforeach
-
 
     {{-- MODAL DELETE CATEGORY --}}
     @foreach ($categories as $category)

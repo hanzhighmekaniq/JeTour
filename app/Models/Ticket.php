@@ -10,11 +10,19 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'customer_name',
         'price',
-        'description',
-        'image',
+        'rules',
+        'open',
+        'close',
+        'type',
+        'status',
+        'is_active',
         'destination_id',
     ];
 
+    public function destination()
+    {
+        return $this->belongsTo(Destination::class, 'destination_id', 'id');
+    }
 }

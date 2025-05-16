@@ -36,6 +36,10 @@ class Destination extends Model
 
     public function culinary(): HasMany
     {
-        return $this->hasMany(Destination::class, 'category_id','id');
+        return $this->hasMany(Culinary::class, 'culinary_id','id');
+    }
+    public function ticket(): HasMany
+    {
+        return $this->hasMany(Ticket::class, 'destination_id','id');
     }
 }
