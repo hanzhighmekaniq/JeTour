@@ -14,16 +14,17 @@ return new class extends Migration
         Schema::create('destinations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('regionCode')->nullable();
             $table->string('description');
             $table->string('image');
+            $table->longText('multiple_images')->nullable();
             $table->string('content');
             $table->string('fasility');
             $table->string('location');
-            $table->double('latitude');
-            $table->double('longitude');
-            $table->decimal('price');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict')->onUpdate('cascade');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->decimal('price')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
     }

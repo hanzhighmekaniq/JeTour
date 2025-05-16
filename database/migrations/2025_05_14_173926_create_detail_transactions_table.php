@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('detail_transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('destination_id');
-            $table->string('title');
-            $table->boolean('status');
-            $table->time('operational');
+            $table->foreignId('transaction_id')->constrained('transactions')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('ticket_id')->constrained('tickets')->onDelete('restrict')->onUpdate('cascade');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('detail_transactions');
     }
 };

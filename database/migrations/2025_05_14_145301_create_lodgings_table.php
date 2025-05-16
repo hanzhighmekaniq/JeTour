@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('lodgings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->enum('status',['PAID','UNPAID','USED','EXPIRED'])->default('UNPAID');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('nama');
+            $table->text('deskripsi');
+            $table->string('lokasi');
+            $table->enum('tipe', ['hotel', 'villa', 'guesthouse']);
+            $table->decimal('harga', 10, 2);
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('lodgings');
     }
 };
