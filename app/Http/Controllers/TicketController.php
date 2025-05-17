@@ -119,4 +119,13 @@ class TicketController extends Controller
     {
         //
     }
+
+    /**
+     * Show checkout page for a ticket
+     */
+    public function checkout(string $id)
+    {
+        $ticket = Ticket::with('destination')->findOrFail($id);
+        return view('payment.checkout', compact('ticket'));
+    }
 }
