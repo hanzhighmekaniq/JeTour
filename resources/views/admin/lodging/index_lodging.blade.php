@@ -2,33 +2,38 @@
     <div class="w-full p-4 sm:p-6 bg-gray-50 min-h-screen">
         <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Data Penginapan</h1>
 
-        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-6">
             <!-- Tombol Tambah -->
-            <div>
+            <div class="w-full sm:w-auto">
                 <a href="{{ route('lodging.create') }}"
-                    class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">
-                    + Tambah Penginapan
+                    class="inline-flex items-center justify-center w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg transition duration-200 shadow-sm">
+                    <i class="fa-solid fa-circle-plus mr-3"></i> Tambah Penginapan
                 </a>
             </div>
 
             <!-- Filter dan Search -->
             <div class="w-full sm:w-auto">
-                <form action="{{ route('lodging.index') }}" method="GET" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
+                <form action="{{ route('lodging.index') }}" method="GET"
+                    class="flex flex-col sm:flex-row gap-3 sm:items-center">
                     <select name="tipe"
-                        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto">
+                        class="w-full sm:w-40 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-700 text-sm">
                         <option value="">Semua Tipe</option>
                         <option value="hotel" {{ request('tipe') == 'hotel' ? 'selected' : '' }}>Hotel</option>
                         <option value="villa" {{ request('tipe') == 'villa' ? 'selected' : '' }}>Villa</option>
-                        <option value="guesthouse" {{ request('tipe') == 'guesthouse' ? 'selected' : '' }}>Guesthouse</option>
+                        <option value="guesthouse" {{ request('tipe') == 'guesthouse' ? 'selected' : '' }}>Guesthouse
+                        </option>
                     </select>
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama penginapan..."
-                        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        placeholder="Cari nama penginapan..."
+                        class="w-full sm:w-48 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
                     <input type="number" name="harga_min" value="{{ request('harga_min') }}" placeholder="Harga Min"
-                        class="px-4 py-2 border border-gray-300 rounded-md w-full sm:w-auto">
+                        class="w-full sm:w-32 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
                     <input type="number" name="harga_max" value="{{ request('harga_max') }}" placeholder="Harga Max"
-                        class="px-4 py-2 border border-gray-300 rounded-md w-full sm:w-auto">
+                        class="w-full sm:w-32 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
                     <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition w-full sm:w-auto">Filter</button>
+                        class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-lg transition duration-200 shadow-sm">
+                        Filter
+                    </button>
                 </form>
             </div>
         </div>
@@ -57,7 +62,8 @@
                             <td class="py-3 px-4 sm:px-6 text-center space-x-2">
                                 <a href="{{ route('admin.lodging.edit', $lodging) }}"
                                     class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs transition">Edit</a>
-                                <form action="{{ route('admin.lodging.destroy', $lodging) }}" method="POST" class="inline">
+                                <form action="{{ route('admin.lodging.destroy', $lodging) }}" method="POST"
+                                    class="inline">
                                     @csrf
                                     @method('DELETE')
                                     <button onclick="return confirm('Yakin ingin menghapus?')"
