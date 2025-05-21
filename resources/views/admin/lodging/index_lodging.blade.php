@@ -7,7 +7,7 @@
             <div class="w-full sm:w-auto">
                 <a href="{{ route('lodging.create') }}"
                     class="inline-flex items-center justify-center w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg transition duration-200 shadow-sm">
-                    <i class="fa-solid fa-circle-plus mr-3"></i> Tambah Penginapan
+                    <i class="fa-solid fa-circle-plus mr-3"></i> Penginapan
                 </a>
             </div>
 
@@ -16,7 +16,8 @@
                 <form action="{{ route('lodging.index') }}" method="GET"
                     class="flex flex-col sm:flex-row gap-3 sm:items-center">
                     <select name="tipe"
-                        class="w-full sm:w-40 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-700 text-sm">
+                        class="w-full sm:w-40 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-700 text-sm"
+                        aria-label="Pilih tipe penginapan">
                         <option value="">Semua Tipe</option>
                         <option value="hotel" {{ request('tipe') == 'hotel' ? 'selected' : '' }}>Hotel</option>
                         <option value="villa" {{ request('tipe') == 'villa' ? 'selected' : '' }}>Villa</option>
@@ -25,15 +26,25 @@
                     </select>
                     <input type="text" name="search" value="{{ request('search') }}"
                         placeholder="Cari nama penginapan..."
-                        class="w-full sm:w-48 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+                        class="w-full sm:w-48 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                        aria-label="Cari nama penginapan">
                     <input type="number" name="harga_min" value="{{ request('harga_min') }}" placeholder="Harga Min"
-                        class="w-full sm:w-32 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+                        class="w-full sm:w-32 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                        aria-label="Harga minimum">
                     <input type="number" name="harga_max" value="{{ request('harga_max') }}" placeholder="Harga Max"
-                        class="w-full sm:w-32 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
-                    <button type="submit"
-                        class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-lg transition duration-200 shadow-sm">
-                        Filter
-                    </button>
+                        class="w-full sm:w-32 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                        aria-label="Harga maksimum">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button type="submit"
+                            class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-lg transition duration-200 shadow-sm flex items-center justify-center">
+                        <i class="fa-solid fa-filter"></i>
+                        </button>
+                        <a href="{{ route('lodging.index') }}"
+                            class="w-full sm:w-auto bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-2.5 rounded-lg transition duration-200 shadow-sm flex items-center justify-center"
+                            aria-label="Reset filter">
+                            <i class="fa-solid fa-filter-circle-xmark"></i>
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -60,10 +71,9 @@
                             <td class="py-3 px-4 sm:px-6">{{ $lodging->lokasi }}</td>
                             <td class="py-3 px-4 sm:px-6">Rp {{ number_format($lodging->harga, 0, ',', '.') }}</td>
                             <td class="py-3 px-4 sm:px-6 text-center space-x-2">
-                                <a href="{{ route('admin.lodging.edit', $lodging) }}"
+                                <a href="{{ route('lodging.edit', $lodging) }}"
                                     class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs transition">Edit</a>
-                                <form action="{{ route('admin.lodging.destroy', $lodging) }}" method="POST"
-                                    class="inline">
+                                <form action="{{ route('lodging.destroy', $lodging) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
                                     <button onclick="return confirm('Yakin ingin menghapus?')"
