@@ -68,7 +68,7 @@ class LodgingController extends Controller
 
     public function edit(Lodging $lodging)
     {
-        return view('admin.lodging.edit', compact('lodging'));
+        return view('admin.lodging.edit_lodging', compact('lodging'));
     }
 
     public function update(Request $request, Lodging $lodging)
