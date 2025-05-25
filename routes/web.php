@@ -11,6 +11,9 @@ use App\Http\Controllers\LodgingController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\Transaction;
 use App\Http\Controllers\TransactionController;
+use App\Models\Culinary;
+use App\Models\Destination;
+use App\Models\Transactions;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,7 +31,14 @@ Route::view('/food', 'pages.food');
 Route::view('/destination', 'pages.destination');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard', function () {
+        // Dummy data, ganti dengan query ke database jika sudah ada
+        $totalWisata = Destination::count();
+        $totalPengunjung = Transactions::count();;
+        $totalKuliner = Culinary::count();
+        return view('admin.dashboard.dashboard', compact('totalWisata', 'totalPengunjung', 'totalKuliner'));
+    })->name('dashboard.index');
     Route::resource('destination', DestinationController::class);
     Route::resource('culinary', CulinaryController::class);
     Route::resource('lodging', LodgingController::class);
