@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\UserServiceInterface;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ class UserController extends Controller
 {
     protected $userService;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserServiceInterface $userService)
     {
         $this->userService = $userService;
     }
@@ -19,6 +20,12 @@ class UserController extends Controller
     {
         $users = $this->userService->getAll();
         return view('admin.user', compact('users'));
+    }
+
+    public function destroy($id)
+    {
+        $this->userService->delete($id);
+        return redirect()->route('datauser.index')->with('success', 'User berhasil dihapus.');
     }
 
     public function store(Request $request)
@@ -49,11 +56,5 @@ class UserController extends Controller
 
         $this->userService->update($id, $validated);
         return redirect()->route('datauser.index')->with('success', 'User berhasil diupdate.');
-    }
-
-    public function destroy($id)
-    {
-        $this->userService->delete($id);
-        return redirect()->route('datauser.index')->with('success', 'User berhasil dihapus.');
     }
 }

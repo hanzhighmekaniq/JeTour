@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Contracts\UserServiceInterface;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class UserService
+class UserService implements UserServiceInterface
 {
     public function getAll()
     {
