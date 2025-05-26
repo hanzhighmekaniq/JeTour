@@ -10,12 +10,13 @@
                 <!-- Filter dan Search -->
                 <form method="GET" action="{{ route('datauser.index') }}"
                     class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
-                    <input type="text" name="search" id="search" value="{{ request('search') }}"
+                    <input type="text" name="search" id="search" value="{{ $keyword ?? '' }}"
                         placeholder="Cari nama pengguna..."
                         class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500 w-full sm:w-auto">
                     <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition w-full sm:w-auto"><i
-                            class="fa-solid fa-filter"></i></button>
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition w-full sm:w-auto">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </form>
             </div>
         </div>
@@ -32,31 +33,36 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    @forelse ($users as $index => $user)
-                        <tr>
-                            <td class="py-3 px-4">{{ $index + 1 }}</td>
-                            <td class="py-3 px-4">{{ $user->name }}</td>
-                            <td class="py-3 px-4">{{ $user->email }}</td>
-                            <td class="py-3 px-4 text-center space-x-2">
-                                <a href="{{ route('datauser.edit', $user->id) }}">
-                                    <button class="bg-yellow-400 text-white px-3 py-1 rounded text-xs">Edit</button>
+                    @forelse($users as $index => $user)
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-3 px-4 sm:px-6">
+                                {{ $loop->iteration + ($users->currentPage() - 1) * $users->perPage() }}</td>
+                            <td class="py-3 px-4 sm:px-6">{{ $user->name }}</td>
+                            <td class="py-3 px-4 sm:px-6">{{ $user->email }}</td>
+                            <td class="py-3 px-4 sm:px-6 text-center space-x-2">
+                                <a href="#" class="inline-block mb-1 sm:mb-0">
+                                    <button
+                                        class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs">Edit</button>
                                 </a>
                                 <form action="{{ route('datauser.destroy', $user->id) }}" method="POST"
                                     class="inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return confirm('Yakin hapus?')" type="submit"
+                                    <button type="submit" onclick="return confirm('Yakin hapus?')"
                                         class="bg-red-500 text-white px-3 py-1 rounded text-xs">Hapus</button>
                                 </form>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="text-center py-4">Belum ada data.</td>
+                            <td colspan="5" class="text-center py-4">Data tidak ditemukan.</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
+            <div class="mt-4 mb-2 mx-4">
+                {{ $users->withQueryString()->links() }}
+            </div>
         </div>
 
     </div>

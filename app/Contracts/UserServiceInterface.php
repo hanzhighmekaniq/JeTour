@@ -9,4 +9,5 @@ interface UserServiceInterface
     public function find($id);
     public function update($id, array $data);
     public function delete($id);
+    public function paginateAndSearch(string $keyword = null, int $perPage = 10);
 }

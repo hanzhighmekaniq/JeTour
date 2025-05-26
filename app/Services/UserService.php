@@ -41,4 +41,19 @@ class UserService implements UserServiceInterface
         $user = User::findOrFail($id);
         return $user->delete();
     }
+
+    public function paginateAndSearch(string $keyword = null, int $perPage = 10)
+    {
+        $query = User::query()
+            ->where('id', '!=', 1); //  Tambahkan ini untuk mengecualikan ID 1
+
+        if ($keyword) {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhere('email', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        return $query->paginate($perPage);
+    }
 }

@@ -16,10 +16,11 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = $this->userService->getAll();
-        return view('admin.user', compact('users'));
+        $keyword = $request->input('search');
+        $users = $this->userService->paginateAndSearch($keyword, 5);
+        return view('admin.user', compact('users', 'keyword'));
     }
 
     public function destroy($id)
