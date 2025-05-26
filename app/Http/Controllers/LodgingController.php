@@ -14,20 +14,20 @@ class LodgingController extends Controller
         $query = Lodging::query();
 
         // Search by name
-        if ($request->has('search')) {
+        if ($request->filled('search')) {
             $query->where('nama', 'like', '%' . $request->search . '%');
         }
 
         // Filter by type
-        if ($request->has('tipe') && $request->tipe !== '') {
+        if ($request->filled('tipe')) {
             $query->where('tipe', $request->tipe);
         }
 
         // Filter by price range
-        if ($request->has('harga_min')) {
+        if ($request->filled('harga_min')) {
             $query->where('harga', '>=', $request->harga_min);
         }
-        if ($request->has('harga_max')) {
+        if ($request->filled('harga_max')) {
             $query->where('harga', '<=', $request->harga_max);
         }
 
@@ -58,13 +58,17 @@ class LodgingController extends Controller
 
         Lodging::create($validated);
 
-        return redirect()->route('admin.lodging.index_lodging')
-            ->with('success', 'lodging berhasil ditambahkan.');
+        // Ambil ulang data
+        $lodgings = Lodging::paginate(10);
+
+        return view('admin.lodging.index_lodging', compact('lodgings'))
+            ->with('success', 'data berhasil ditambahkan.');
     }
+
 
     public function edit(Lodging $lodging)
     {
-        return view('admin.lodging.edit', compact('lodging'));
+        return view('admin.lodging.edit_lodging', compact('lodging'));
     }
 
     public function update(Request $request, Lodging $lodging)
@@ -88,8 +92,10 @@ class LodgingController extends Controller
 
         $lodging->update($validated);
 
-        return redirect()->route('admin.lodging.index')
-            ->with('success', 'lodging berhasil diperbarui.');
+        $lodgings = Lodging::paginate(10);
+
+        return view('admin.lodging.index_lodging', compact('lodgings'))
+            ->with('success', 'data berhasil diubah.');
     }
 
     public function destroy(Lodging $lodging)
@@ -100,7 +106,9 @@ class LodgingController extends Controller
 
         $lodging->delete();
 
-        return redirect()->route('admin.lodging.index')
-            ->with('success', 'lodging berhasil dihapus.');
+        $lodgings = Lodging::paginate(10);
+
+        return view('admin.lodging.index_lodging', compact('lodgings'))
+            ->with('success', 'data berhasil dihapus.');
     }
 }

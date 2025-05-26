@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\UserServiceInterface;
+use App\Services\UserService;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Midtrans\Config;
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(UserServiceInterface::class, UserService::class);
     }
 
     /**
