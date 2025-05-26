@@ -85,7 +85,7 @@
             </li>
 
             <li>
-                <a href="#"
+                <a href="{{ route('datauser.index') }}"
                     class="relative flex flex-row items-center h-11 focus:outline-none 
                     {{ Request::routeIs('datauser') ? 'bg-emerald-50 text-emerald-700 border-emerald-500' : 'hover:bg-gray-50 text-gray-600 hover:text-gray-800' }}
                         border-l-4 border-transparent pr-6">
