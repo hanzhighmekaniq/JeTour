@@ -11,6 +11,7 @@ use App\Http\Controllers\LodgingController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\Transaction;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use App\Models\Culinary;
 use App\Models\Destination;
 use App\Models\Transactions;
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::resource('lodging', LodgingController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('transaction', TransactionController::class);
+    Route::resource('datauser', UserController::class);
  //   Route::resource('excurtion', ExcurtionController::class);
     Route::resource('ticket', TicketController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
