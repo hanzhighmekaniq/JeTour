@@ -46,6 +46,10 @@ class DatabaseSeeder extends Seeder
             'category_id' => 2,
         ]);
 
+        $this->call([
+            UserSeeder::class,
+        ]);
+
     }
 }
 
