@@ -29,6 +29,23 @@ services:
     depends_on:
       - app
 
+  mysql:
+    image: mysql:8.0
+    container_name: jtour-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-jtour}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-root}
+      MYSQL_USER: ${DB_USERNAME:-jtour}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - jtour-network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
