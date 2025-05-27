@@ -26,6 +26,13 @@ class TransactionTest extends TestCase
         $this->actingAs($this->user);
     }
 
+    public function test_transactions_route_returns_testing_success()
+    {
+        $response = $this->get('/transactions');
+        $response->assertStatus(200);
+        $response->assertSee('Testing Succes');
+    }
+
     public function test_user_can_view_transactions_list()
     {
         $response = $this->get(route('transaction.index'));
