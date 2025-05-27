@@ -14,9 +14,10 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $data = Transactions::all();
-        return view('admin.transaction.index_transaction', compact('data'));
+        $transactions = Transactions::with('ticket')->paginate(10); // 10 data per halaman
+        return view('admin.transaction.index_transaction', compact('transactions'));
     }
+
 
     public function store(Request $request)
     {
@@ -51,5 +52,4 @@ class TransactionController extends Controller
 
         return response()->json(json_decode($response->getBody()->getContents(), true));
     }
-
 }
