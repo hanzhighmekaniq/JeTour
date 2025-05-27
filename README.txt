@@ -3,8 +3,8 @@
 Website inovasi media digital untuk meningkatkan eksposur pariwisata di Jember.
 
 ## Prerequisite
+testing push penilaian
 
-anjaayyy
 
 Untuk menjalankan aplikasi website ini, pastikan pada perangkat PC anda sudah terinstall alat-alat berikut ini:
 
