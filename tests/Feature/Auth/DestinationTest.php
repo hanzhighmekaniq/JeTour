@@ -23,6 +23,13 @@ class DestinationTest extends TestCase
         $this->actingAs($this->user);
     }
 
+    public function test_destination_route_returns_testing_success()
+    {
+        $response = $this->get('/destination');
+        $response->assertStatus(200);
+        $response->assertSee('Testing Succes');
+    }
+
     public function test_user_can_view_destinations_list()
     {
         $response = $this->get(route('destination.index'));
