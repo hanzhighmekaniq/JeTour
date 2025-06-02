@@ -11,10 +11,11 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_user_can_view_login_page()
+    public function test_login_route_returns_testing_success()
     {
-        $response = $this->get(route('login'));
+        $response = $this->get('/login');
         $response->assertStatus(200);
+        $response->assertSee('Testing Succes');
     }
 
     public function test_user_can_login_with_correct_credentials()
