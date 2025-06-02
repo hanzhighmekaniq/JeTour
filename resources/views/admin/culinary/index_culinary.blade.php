@@ -8,10 +8,10 @@
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-4">
             <!-- Tombol Tambah Kuliner -->
             <div>
-                <button
+                <a href="{{ route('culinary.create') }}"
                     class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">
                     + Tambah Kuliner
-                </button>
+                </a>
             </div>
 
             <!-- Filter dan Search -->
@@ -60,12 +60,12 @@
                             <td class="py-3 px-4 sm:px-6">{{ $culinary->open }}</td>
                             <td class="py-3 px-4 sm:px-6">{{ $culinary->close }}</td>
                             <td class="py-3 px-4 sm:px-6">
-                                {{ $culinary->destination->title ?? 'Tidak ada destinasi' }}
+                                {{ $culinary->destination->name ?? 'Tidak ada destinasi' }}
                             </td>
                             <td class="py-3 px-4 sm:px-6 text-center space-x-2">
-                                <a href="{{ route('culinarys.edit', $culinary->id) }}"
+                                <a href="{{ route('culinary.edit', $culinary->id) }}"
                                     class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded text-xs transition">Edit</a>
-                                <form action="{{ route('culinarys.destroy', $culinary->id) }}" method="POST"
+                                <form action="{{ route('culinary.destroy', $culinary->id) }}" method="POST"
                                     class="inline">
                                     @csrf
                                     @method('DELETE')
