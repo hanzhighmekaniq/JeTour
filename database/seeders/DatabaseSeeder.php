@@ -33,21 +33,9 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin123'),
         ]);
 
-        Destination::create([
-            'name' => 'Puger',
-            'description' => 'Puger adalah tempat wisata yang berada di Kecamatan Puger, Kabupaten Tangerang, Provinsi Bantul, Yogyakarta.',
-            'location' => 'Puger, Kecamatan Puger, Kabupaten Tangerang, Provinsi Bantul, Yogyakarta',
-            'fasility' => 'Puger adalah tempat wisata yang berada di Kecamatan Puger, Kabupaten Tangerang, Provinsi Bantul, Yogyakarta.',
-            'latitude' => '-7.274444',
-            'longitude' => '110.403611',
-            'image' => 'puger.jpg',
-            'price' => '90000',
-            'content' => 'Puger adalah tempat wisata yang berada di Kecamatan Puger, Kabupaten Tangerang, Provinsi Bantul, Yogyakarta.',
-            'category_id' => 2,
-        ]);
-
         $this->call([
             UserSeeder::class,
+            DestinationSeeder::class,
         ]);
 
     }
