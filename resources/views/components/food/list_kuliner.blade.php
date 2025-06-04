@@ -55,32 +55,35 @@
             <p class="text-center text-gray-400">Belum ada kuliner untuk destinasi ini.</p>
         @endforelse
 
-        <!-- Modal -->
-        <div id="modal-{{ $culinary->id }}"
-            class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden justify-center items-center">
-            <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full p-6 relative">
-                <!-- Tombol Close -->
-                <button onclick="closeModal('{{ $culinary->id }}')"
-                    class="absolute top-3 right-3 text-gray-600 hover:text-red-500">
-                    ✕
-                </button>
+        @foreach ($foods as $culinary)
+            <!-- Modal -->
+            <div id="modal-{{ $culinary->id }}"
+                class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden justify-center items-center">
+                <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full p-6 relative">
+                    <!-- Tombol Close -->
+                    <button onclick="closeModal('{{ $culinary->id }}')"
+                        class="absolute top-3 right-3 text-gray-600 hover:text-red-500">
+                        ✕
+                    </button>
 
-                <h2 class="text-xl font-semibold mb-4">Galeri Kuliner: {{ $culinary->title }}</h2>
+                    <h2 class="text-xl font-semibold mb-4">Galeri Kuliner: {{ $culinary->title }}</h2>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto">
-                    @php
-                        $images = json_decode($culinary->multiple_images, true) ?? [];
-                    @endphp
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto">
+                        @php
+                            $images = json_decode($culinary->multiple_images, true) ?? [];
+                        @endphp
 
-                    @forelse ($images as $img)
-                        <img src="{{ asset('storage/' . $img) }}" alt="Foto {{ $culinary->title }}"
-                            class="rounded-md object-cover w-full h-48">
-                    @empty
-                        <p class="text-gray-500">Tidak ada gambar tambahan.</p>
-                    @endforelse
+                        @forelse ($images as $img)
+                            <img src="{{ asset('storage/' . $img) }}" alt="Foto {{ $culinary->title }}"
+                                class="rounded-md object-cover w-full h-48">
+                        @empty
+                            <p class="text-gray-500">Tidak ada gambar tambahan.</p>
+                        @endforelse
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
+
         <script>
             function openModal(id) {
                 document.getElementById(`modal-${id}`).classList.remove('hidden');
