@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
-use App\Contracts\UserServiceInterface;
+use Midtrans\Config;
+use App\Models\Destination;
 use App\Services\UserService;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
+use App\Contracts\UserServiceInterface;
 use Illuminate\Support\ServiceProvider;
-use Midtrans\Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,5 +33,19 @@ class AppServiceProvider extends ServiceProvider
         Config::$isProduction = false;
         Config::$isSanitized = true;
         Config::$is3ds = true;
+
+        View::composer('*', function ($view) {
+            // Ambil parameter 'name' dari route jika ada
+            $name = request()->route('name');
+
+            $destination = null;
+
+            if ($name) {
+                $destination = Destination::where('name', $name)->first();
+            }
+
+            // Kirim variabel $destination ke semua view
+            $view->with('destination', $destination);
+        });
     }
 }

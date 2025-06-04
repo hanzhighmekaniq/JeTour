@@ -4,17 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Transactions extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'phone',
         'status',
-        'type',
+        'total_price',
+        'payment_method',
         'order_id',
         'gross_amount',
         'payment_type',
@@ -25,8 +28,8 @@ class Transactions extends Model
         'quantity',
     ];
 
-    public function ticket()
+    public function detailTransactions(): HasMany
     {
-        return $this->belongsTo(Ticket::class, 'ticket_id', 'id');
+        return $this->hasMany(DetailTransaction::class, 'transaction_id', 'id');
     }
 }

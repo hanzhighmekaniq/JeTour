@@ -1,16 +1,18 @@
+{{-- @php
+    use App\Models\Destination;
+
+    $destination = Destination::where('name]', $name)->first();
+@endphp --}}
+
 <section class="bg-white shadow-lg mt-5 rounded-2xl overflow-hidden">
-    <div class="bg-cover bg-center " style="background-image: url('{{ asset('assets/images/bg-hero-pages.png') }}');">
+    <div class="bg-cover bg-center h-screen"
+        style="background-image: url('{{ asset('storage/' . $destination->image) }}');">
 
         <div
-            class="flex flex-col pt-20  lg:pt-96 justify-center items-center md:justify-center lg:justify-end md:items-start p-10 md:px-28 text-white bg-black bg-opacity-30 w-full h-full ">
+            class="flex flex-col pt-20 h-screen  lg:pt-96 justify-center items-center md:justify-center lg:justify-end md:items-start p-10 md:px-28 text-white bg-black bg-opacity-30 w-full ">
             <div class="flex justify-center w-full">
                 <div class="container">
-                    @php
-                        use App\Models\Destination;
 
-                        // Contoh ambil data pertama
-                        $destination = Destination::first();
-                    @endphp
 
                     <h1 class="text-5xl md:text-8xl font-losta mt-14 md:mt-0 text-center md:text-left">
                         {{ $destination->name ?? 'Nama Tempat Default' }}

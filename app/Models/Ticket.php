@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ticket extends Model
 {
@@ -21,8 +23,12 @@ class Ticket extends Model
         'destination_id',
     ];
 
-    public function destination()
+    public function destination(): BelongsTo
     {
         return $this->belongsTo(Destination::class, 'destination_id', 'id');
+    }
+    public function ticket(): HasMany
+    {
+        return $this->hasMany(Ticket::class, 'ticket_id', 'id');
     }
 }

@@ -7,9 +7,8 @@
         <div class="flex justify-center">
             <div class="container">
                 @include('components.location.description')
-                @include('components.location.nearby_hotel')
+                {{-- @include('components.location.nearby_hotel') --}}
             </div>
         </div>
     </div>
 @endsection
-@extends('layouts.master_pages')

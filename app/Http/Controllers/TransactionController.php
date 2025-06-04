@@ -14,9 +14,11 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $transactions = Transactions::with('ticket')->paginate(10); // 10 data per halaman
+        $transactions = Transactions::with(['detailTransactions.ticket'])->paginate(10);
         return view('admin.transaction.index_transaction', compact('transactions'));
     }
+
+
 
 
     public function store(Request $request)

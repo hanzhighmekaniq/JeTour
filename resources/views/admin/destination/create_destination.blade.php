@@ -56,16 +56,28 @@
                             </div>
 
                             <div class="flex flex-col">
-                                <label for="price" class="block text-sm font-medium text-gray-700">Harga Masuk</label>
+                                <label for="price" class="block text-sm font-medium text-gray-700">Harga
+                                    Masuk</label>
                                 <input type="number" name="price" id="price"
                                     class="mt-1 block w-full border-gray-300 rounded-md" required>
                             </div>
+                            <div class="flex flex-col">
+                                <label for="regionCode" class="block text-sm font-medium text-gray-700">Kode
+                                    Wilayah</label>
+                                <input type="text" name="regionCode" id="regionCode"
+                                    class="mt-1 block w-full border-gray-300 rounded-md">
+                            </div>
 
                             <div class="flex flex-col md:col-span-2">
-                                <label for="content" class="block text-sm font-medium text-gray-700">Konten
+                                <label for="multiple_images" class="block text-sm font-medium text-gray-700">Gambar
                                     Tambahan</label>
-                                <textarea name="content" id="content" rows="3" class="mt-1 block w-full border-gray-300 rounded-md"></textarea>
+                                <input type="file" name="multiple_images[]" id="multiple_images" multiple
+                                    class="mt-1 block w-full border-gray-300 rounded-md">
+                                <p class="text-xs text-gray-500 mt-1">Pilih lebih dari satu gambar jika perlu.</p>
                             </div>
+
+
+
 
                             <div class="flex flex-col md:col-span-2">
                                 <label for="image" class="block text-sm font-medium text-gray-700">Gambar</label>

@@ -7,7 +7,7 @@
         <!-- Title (aligned to the left) -->
         <div class="text-left mb-10">
             <h1 class="text-4xl font-losta text-[#13372A] mb-4">Temukan Tujuan Liburan Kamu</h1>
-            <p class="text-lg font-poppins text-black">Top 4 wisata Jember yang bisa kalian coba</p>
+            <p class="text-lg font-poppins text-black">Beberapa wisata Jember yang bisa kalian coba</p>
         </div>
 
         <div class="container mx-auto mt-10 ">

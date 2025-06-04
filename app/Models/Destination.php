@@ -14,16 +14,18 @@ class Destination extends Model
 
     protected $fillable = [
         'name',
+        'regionCode',
         'description',
+        'image',
+        'multiple_images',
+        'content',
+        'fasility',    // pastikan ejaan sesuai kebutuhan
         'location',
-        'fasility',
         'latitude',
         'longitude',
-        'image',
-        'content',
+        'price',
         'category_id',
     ];
-
 
     public function category(): BelongsTo
     {

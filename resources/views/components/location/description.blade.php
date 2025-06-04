@@ -3,7 +3,7 @@
             class="text-black size-10" />{{ $destination->location }}</p>
     <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 h-80">
         <div class="flex  flex-col">
-            <h1 class="font-losta text-5xl mb-5">Lokasi Wisata Puncak Rembangan</h1>
+            <h1 class="font-losta text-5xl mb-5">Lokasi Wisata {{ $destination->name }}</h1>
             <h5>{{ $destination->description }}</h5>
         </div>
         <div class="flex gap-4 h-60 lg:h-full">
