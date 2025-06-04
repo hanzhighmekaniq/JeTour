@@ -1,4 +1,4 @@
-@extends('layouts.master_landing')
+{{-- @extends('layouts.master_landing')
 
 @section('content')
     @include('components.navbar')
@@ -9,4 +9,4 @@
     @include('components.landing_page.cta-hiddengem')
     @include('components.landing_page.kuliner')
     @include('components.landing_page.transport')
-@endsection
+@endsection --}}

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('name');
+            $table->string('image');
             $table->time('operational');
             $table->time('close');
             $table->string('price');

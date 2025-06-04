@@ -22,7 +22,6 @@ class Transactions extends Model
         'transaction_time',
         'transaction_status',
         'snap_token',
-        'ticket_id',
         'quantity',
     ];
 

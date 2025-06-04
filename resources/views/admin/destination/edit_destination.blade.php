@@ -72,11 +72,12 @@
 
                             <div class="flex flex-col md:col-span-2">
                                 <label for="image" class="block text-sm font-medium text-gray-700">Gambar</label>
-                                @if($data->image)
-                                    <div class="mb-2">
-                                        <img src="{{ asset('images/' . $data->image) }}" alt="Current Image" class="w-32 h-32 object-cover rounded">
-                                    </div>
-                                @endif
+                               @if($data->image)
+    <div class="mb-2">
+        <img src="{{ asset('storage/' . $data->image) }}" alt="Current Image" class="w-32 h-32 object-cover rounded">
+    </div>
+@endif
+
                                 <input type="file" name="image" id="image"
                                     class="mt-1 block w-full border-gray-300 rounded-md">
                                 <p class="mt-1 text-sm text-gray-500">Biarkan kosong jika tidak ingin mengubah gambar</p>

@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\CulinaryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LodgingController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TransactionController;
@@ -18,25 +20,25 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-Route::view('/', 'index')->name('home');
-Route::view('/location', 'pages.location');
-Route::view('/transportation', 'pages.transportation');
-Route::view('/hotel-details', 'pages.hotel_details');
-Route::view('/overview', 'pages.overview');
-Route::view('/price', 'pages.ticketing');
-Route::view('/food', 'pages.food');
-Route::view('/destination', 'pages.destination');
+Route::get('/', [LandingPageController::class, 'index'])->name('home'); // Halaman login
+Route::get('/destination', [LandingPageController::class, 'indexdestination'])->name('user.destination');
+Route::get('/overview/{name}', [LandingPageController::class, 'indexoverview'])->name('user.overview');
+Route::get('/price/{name}', [LandingPageController::class, 'indexticketing'])->name('user.ticketing');
+Route::get('/location/{name}', [LandingPageController::class, 'indexlocation'])->name('user.location');
+Route::get('/transportation/{name}', [LandingPageController::class, 'indextransportation'])->name('user.transportation');
+Route::get('/food/{name}', [LandingPageController::class, 'indexfood'])->name('user.food');
+// Route::view('/price', 'pages.ticketing');
+// Route::view('/overview', 'pages.overview');
+// Route::view('/destination', 'pages.destination');
+// Route::view('/', 'index')->name('home');
+// Route::view('/location', 'pages.location');
+// Route::view('/transportation', 'pages.transportation');
+// Route::view('/hotel-details', 'pages.hotel_details');
+// Route::view('/food', 'pages.food');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
-    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/dashboard', function () {
-        // Dummy data, ganti dengan query ke database jika sudah ada
-        $totalWisata = Destination::count();
-        $totalPengunjung = Transactions::count();;
-        $totalKuliner = Culinary::count();
-        return view('admin.dashboard.dashboard', compact('totalWisata', 'totalPengunjung', 'totalKuliner'));
-    })->name('dashboard.index');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index'); // Halaman login
     Route::resource('destination', DestinationController::class);
     Route::resource('culinary', CulinaryController::class);
     Route::resource('lodging', LodgingController::class);
@@ -58,9 +60,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-// Add these routes for Midtrans payment integration
-Route::get('/tickets/{id}/checkout', [App\Http\Controllers\TicketController::class, 'checkout'])->name('tickets.checkout');
-Route::post('/checkout/process', [App\Http\Controllers\MidtransController::class, 'checkout'])->name('checkout.process');
-Route::get('/payment/finish', [App\Http\Controllers\MidtransController::class, 'finish'])->name('payment.finish');
-Route::get('/transactions', [App\Http\Controllers\MidtransController::class, 'index'])->name('transactions.index');
-Route::get('/transactions/{order_id}/status', [App\Http\Controllers\MidtransController::class, 'status'])->name('transactions.status');
+// // Add these routes for Midtrans payment integration
+// Route::get('/tickets/{id}/checkout', [App\Http\Controllers\TicketController::class, 'checkout'])->name('tickets.checkout');
+// Route::post('/checkout/process', [App\Http\Controllers\MidtransController::class, 'checkout'])->name('checkout.process');
+// Route::get('/payment/finish', [App\Http\Controllers\MidtransController::class, 'finish'])->name('payment.finish');
+// Route::get('/transactions', [App\Http\Controllers\MidtransController::class, 'index'])->name('transactions.index');
+// Route::get('/transactions/{order_id}/status', [App\Http\Controllers\MidtransController::class, 'status'])->name('transactions.status');

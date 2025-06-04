@@ -65,20 +65,7 @@ if (window.location.pathname === "/location") {
     });
 }
 
-// Map Leaflet
-document.addEventListener("DOMContentLoaded", () => {
-    const mapElements = document.querySelectorAll("#map");
-    mapElements.forEach((mapElement) => {
-        const map = L.map(mapElement).setView(
-            [-8.079458617240995, 113.69268118251553],
-            15
-        );
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
-            map
-        );
-        L.marker([-8.079458617240995, 113.69268118251553]).addTo(map);
-    });
-});
+
 
 // Swiper
 if (window.location.pathname === "/hotel-details") {

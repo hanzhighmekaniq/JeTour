@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Destination;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 
 class DestinationController extends Controller
 {
@@ -36,7 +36,7 @@ class DestinationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+     public function create()
     {
         $categories = Category::all();
         return view('admin.destination.create_destination', compact('categories'));
@@ -48,7 +48,7 @@ class DestinationController extends Controller
     public function store(Request $request)
     {
         try {
-            $request->validate([
+           $validated = $request->validate([
                 'name' => 'required',
                 'location' => 'required',
                 'description' => 'required',
@@ -60,27 +60,16 @@ class DestinationController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
-        $image = $request->file('image');
-        $imageName = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imageName);
-
-        Destination::create([
-            'name' => $request->name,
-            'location' => $request->location,
-            'description' => $request->description,
-            'content' => $request->content,
-            'fasility' => $request->fasility,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-            'image' => $imageName,
-            'category_id' => $request->category_id,
-        ]);
-
+       if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('destination', 'public');
+        }
+        Destination::create($validated);
             return redirect()->route('destination.index')->with('success', 'Destination created successfully');
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -105,55 +94,54 @@ class DestinationController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        try {
-            $request->validate([
-                'name' => 'required',
-                'location' => 'required',
-                'description' => 'required',
-                'content' => 'required',
-                'fasility' => 'required',
-                'latitude' => 'required',
-                'longitude' => 'required',
-                'price' => 'required',
-                'category_id' => 'required',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            ]);
+{
+    try {
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'fasility' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'price' => 'required',
+            'category_id' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
 
-            $data = Destination::findOrFail($id);
+        $data = Destination::findOrFail($id);
 
-            if ($request->hasFile('image')) {
-                // Delete old image
-                if ($data->image) {
-                    $oldImagePath = public_path('images/' . $data->image);
-                    if (file_exists($oldImagePath)) {
-                        unlink($oldImagePath);
-                    }
-                }
-
-                $image = $request->file('image');
-                $imageName = time() . '.' . $image->extension();
-                $image->move(public_path('images'), $imageName);
-                $data->image = $imageName;
+        // Proses upload gambar jika ada
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($data->image && Storage::disk('public')->exists($data->image)) {
+                Storage::disk('public')->delete($data->image);
             }
 
-            $data->update([
-                'name' => $request->name,
-                'location' => $request->location,
-                'description' => $request->description,
-                'content' => $request->content,
-                'fasility' => $request->fasility,
-                'latitude' => $request->latitude,
-                'longitude' => $request->longitude,
-                'price' => $request->price,
-                'category_id' => $request->category_id
-            ]);
-
-            return redirect()->route('destination.index')->with('success', 'Destination updated successfully');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error updating destination: ' . $e->getMessage());
+            // Simpan gambar baru ke storage
+            $path = $request->file('image')->store('images', 'public');
+            $data->image = $path;
         }
+
+        // Update data lainnya
+        $data->update([
+            'name' => $request->name,
+            'location' => $request->location,
+            'description' => $request->description,
+            'content' => $request->content,
+            'fasility' => $request->fasility,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'price' => $request->price,
+            'category_id' => $request->category_id,
+            'image' => $data->image // pastikan image tetap disimpan meski tidak diupdate
+        ]);
+
+        return redirect()->route('destination.index')->with('success', 'Destination updated successfully');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Error updating destination: ' . $e->getMessage());
     }
+}
 
     /**
      * Remove the specified resource from storage.

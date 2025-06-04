@@ -19,17 +19,12 @@ return new class extends Migration
             $table->timestamp('transaction_time')->nullable();
             $table->string('transaction_status')->nullable();
             $table->string('snap_token')->nullable();
-            $table->unsignedBigInteger('ticket_id')->nullable();
             $table->integer('quantity')->nullable();
-
-            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-    }
+    public function down(): void {}
 };

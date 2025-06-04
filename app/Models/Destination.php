@@ -30,17 +30,16 @@ class Destination extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function excurtion(): HasMany
-    {
-        return $this->hasMany(Excurtion::class, 'destination_id', 'id');
-    }
-
     public function culinary(): HasMany
     {
-        return $this->hasMany(Culinary::class, 'culinary_id','id');
+        return $this->hasMany(Culinary::class, 'destination_id', 'id');
     }
     public function ticket(): HasMany
     {
-        return $this->hasMany(Ticket::class, 'destination_id','id');
+        return $this->hasMany(Ticket::class, 'destination_id', 'id');
+    }
+    public function coments(): HasMany
+    {
+        return $this->hasMany(Coment::class, 'destination_id', 'id');
     }
 }

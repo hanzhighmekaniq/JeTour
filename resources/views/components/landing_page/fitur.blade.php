@@ -4,7 +4,6 @@
         <div class="flex items-center justify-between text-left">
             <!-- Logo -->
             <img src="{{ asset('assets/images/landing/logo-fitur.png') }}" alt="Logo" class="h-16 mr-6">
-
             <!-- Heading dan Deskripsi dibungkus div dengan flex -->
             <div class="flex items-start justify-center">
                 <!-- Heading -->
@@ -17,7 +16,6 @@
                     </h2>
                 </div>
             </div>
-
             <!-- Deskripsi (terbagi menjadi beberapa baris) -->
             <div class="hidden md:block">
                 <p class="text-lg text-gray-600 text-left">
@@ -30,7 +28,7 @@
         </div>
     </div>
     <!-- Bagian Bawah: Fitur Card -->
-    <div class="container mx-auto px-4 mt-10">
+    {{-- <div class="container mx-auto px-4 mt-10">
         <div class="grid grid-cols-2 md:flex gap-8 items-end">
             <!-- Card Pertama (tinggi sendiri) -->
             <div class="md:flex-1 md:row-span-2 bg-gray-100 rounded-2xl shadow-lg overflow-hidden">
@@ -107,5 +105,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </section>

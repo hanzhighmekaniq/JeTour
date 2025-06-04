@@ -46,53 +46,21 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- card ye-->
-                <div class="rounded-xl overflow-hidden">
-                    <img src="https://storage.googleapis.com/a1aa/image/ae85c8a6-321d-4528-bcb5-1f825a6f6b20.jpg"
-                        alt="Pantai Papuma" class="w-full h-24 sm:h-28 object-cover rounded-t-xl" />
-                    <div class="bg-[#e8f0fe] rounded-b-xl px-3 py-2">
-                        <h3 class="font-semibold text-black text-sm leading-tight">Pantai Papuma</h3>
-                        <p class="text-xs text-gray-500 flex items-center space-x-1">
-                            <i class="fas fa-map-marker-alt text-xs"></i>
-                            <span>Ambulu</span>
-                        </p>
+                @forelse ($popularDestination as $wisata)
+                    <div class="rounded-xl overflow-hidden">
+                        <img src="https://storage.googleapis.com/a1aa/image/ae85c8a6-321d-4528-bcb5-1f825a6f6b20.jpg"
+                            alt="Pantai Papuma" class="w-full h-24 sm:h-28 object-cover rounded-t-xl" />
+                        <div class="bg-[#e8f0fe] rounded-b-xl px-3 py-2">
+                            <h3 class="font-semibold text-black text-sm leading-tight">{{ $wisata->name }}</h3>
+                            <p class="text-xs text-gray-500 flex items-center space-x-1">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                                <span>{{ $wisata->location }}</span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <!-- card ye-->
-                <div class="rounded-xl overflow-hidden">
-                    <img src="https://storage.googleapis.com/a1aa/image/ae85c8a6-321d-4528-bcb5-1f825a6f6b20.jpg"
-                        alt="Pantai Papuma" class="w-full h-24 sm:h-28 object-cover rounded-t-xl" />
-                    <div class="bg-[#e8f0fe] rounded-b-xl px-3 py-2">
-                        <h3 class="font-semibold text-black text-sm leading-tight">Pantai Papuma</h3>
-                        <p class="text-xs text-gray-500 flex items-center space-x-1">
-                            <i class="fas fa-map-marker-alt text-xs"></i>
-                            <span>Ambulu</span>
-                        </p>
-                    </div>
-                </div>
-                <!-- card ye-->
-                <div class="rounded-xl overflow-hidden">
-                    <img src="https://storage.googleapis.com/a1aa/image/ae85c8a6-321d-4528-bcb5-1f825a6f6b20.jpg"
-                        alt="Pantai Papuma" class="w-full h-24 sm:h-28 object-cover rounded-t-xl" />
-                    <div class="bg-[#e8f0fe] rounded-b-xl px-3 py-2">
-                        <h3 class="font-semibold text-black text-sm leading-tight">Pantai Papuma</h3>
-                        <p class="text-xs text-gray-500 flex items-center space-x-1">
-                            <i class="fas fa-map-marker-alt text-xs"></i>
-                            <span> Ambulu</span>
-                        </p>
-                    </div>
-                </div>
-                <!-- card ye-->
-                <div class="rounded-xl overflow-hidden">
-                    <img src="https://storage.googleapis.com/a1aa/image/ae85c8a6-321d-4528-bcb5-1f825a6f6b20.jpg"
-                        alt="Pantai Papuma" class="w-full h-24 sm:h-28 object-cover rounded-t-xl" />
-                    <div class="bg-[#e8f0fe] rounded-b-xl px-3 py-2">
-                        <h3 class="font-semibold text-black text-sm leading-tight">Pantai Papuma</h3>
-                        <p class="text-xs text-gray-500 flex items-center space-x-1">
-                            <i class="fas fa-map-marker-alt text-xs"></i>
-                            <span>Ambulu</span>
-                        </p>
-                    </div>
-                </div>
+                @empty
+                @endforelse
+
                 {{-- end card --}}
             </div>
         </div>
@@ -118,32 +86,33 @@
                                     Total Harga
                                 </th>
                                 <th scope="col" class="py-3 px-4 sm:px-6 text-left text-center">
-                                    Status 
+                                    Status
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
                             {{-- @foreach ($penginapans as $penginapan) --}}
-                                <tr class="bg-white hover:bg-gray-100 transition-colors">
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900">fgfdgdfg</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">tgyerter</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">rtgert</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">Rp
-                                            retret</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-center">
-                                        <div class="text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-400 font-medium rounded text-sm px-3 py-1.5 focus:outline-none">
-                                            <i class="fa-solid fa-circle-check"></i> Selesai
-                                        </div>                                           
-                                    </td>
-                                </tr>
+                            <tr class="bg-white hover:bg-gray-100 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">fgfdgdfg</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">tgyerter</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">rtgert</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Rp
+                                        retret</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-center">
+                                    <div
+                                        class="text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-400 font-medium rounded text-sm px-3 py-1.5 focus:outline-none">
+                                        <i class="fa-solid fa-circle-check"></i> Selesai
+                                    </div>
+                                </td>
+                            </tr>
                             {{-- @endforeach --}}
                         </tbody>
                     </table>

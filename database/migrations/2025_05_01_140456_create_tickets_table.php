@@ -20,11 +20,11 @@ return new class extends Migration
             $table->time('close')->nullable();
             $table->enum('type', ['Regular', 'Special']);
             $table->enum('status', ['Active', 'Expired']);
-          //  $table->boolean('is_active')->default(true);
+            //  $table->boolean('is_active')->default(true);
             $table->foreignId('destination_id')->constrained('destinations')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
-        }
+    }
 
 
     /**

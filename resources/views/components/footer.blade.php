@@ -1,7 +1,7 @@
-<footer class="relative bg-primary text-white pt-20 pb-6 border-t-2 shadow-[0px_0px_20px_10px_#00000024]">
-    <div class="container mx-auto px-14">
+<footer class="flex justify-center bg-primary text-white pt-20 pb-6 border-t-2 shadow-[0px_0px_20px_10px_#00000024]">
+    <div class="container px-4 lg:px-0">
         <div class="flex flex-wrap text-left lg:text-left">
-            <div class="w-full lg:w-6/12 px-4">
+            <div class="w-full lg:w-6/12">
                 <img src="{{ asset('assets/images/logo-footer.png') }}" alt="" class="size-14 mb-6">
                 <h5 class="text-lg mt-0 mb-2">
                     Memajukan dan meningkatkan <br>pariwisata di Jember
@@ -12,9 +12,9 @@
                     <img src="{{ asset('assets/svg/email.svg') }}" alt="">
                 </div>
             </div>
-            <div class="w-full lg:w-6/12 px-4">
+            <div class="w-full lg:w-6/12">
                 <div class="grid grid-cols-2 mb-6">
-                    <div class="w-full px-4 ">
+                    <div class="w-full ">
                         <span class=" block text-lg font-semibold mb-2">Navigation</span>
                         <ul class="list-unstyled">
                             <li>
@@ -31,7 +31,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="w-full px-4 ">
+                    <div class="w-full ">
                         <span class=" block text-lg font-semibold mb-2">Navigation</span>
                         <ul class="list-unstyled">
                             <li>

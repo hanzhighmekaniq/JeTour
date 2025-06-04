@@ -13,60 +13,35 @@
         <div class="container mx-auto mt-10 ">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:flex gap-8">
                 <!-- Gambar Pertama dengan Teks dan Tombol -->
-                <div class="flex-1 rounded-2xl overflow-hidden ">
-                    <div class="flex-1 rounded-2xl overflow-hidden">
-                        <div class="relative h-[450px] bg-cover bg-center"
-                            style="background-image: url('{{ asset('assets/images/landing/papuma.png') }}');">
+                @forelse ($destinations as $destination)
+                    <div class="flex-1 rounded-2xl overflow-hidden ">
+                        <div class="flex-1 rounded-2xl overflow-hidden">
+                            <div class="relative h-[450px] bg-cover bg-center"
+                                style="background-image: url('{{ asset('storage/' . $destination->image) }}');">
+                            </div>
+                        </div>
+                        <div class="py-4 bg-white rounded-b-2xl overflow-hidden">
+                            <h3 class="font-losta text-2xl font-medium mb-2">{{ $destination->name }}</h3>
+                            <a href="{{ route('user.overview', $destination->name) }}"
+                                class="mt-2 text-lg font-poppins inline-block text-white px-8 py-3 rounded-lg bg-gradient-to-r from-softPrimary to-primary hover:to-softPrimary">Selengkapnya</a>
                         </div>
                     </div>
-                    <div class="py-4 bg-white rounded-b-2xl overflow-hidden">
-                        <h3 class="font-losta text-2xl font-medium mb-2">Papuma Beach</h3>
-                        <a href="/overview"
-                            class="mt-2 text-lg font-poppins inline-block text-white px-8 py-3 rounded-lg bg-gradient-to-r from-softPrimary to-primary hover:to-softPrimary">Selengkapnya</a>
-                    </div>
-                </div>
 
-                <!-- Gambar Kedua dengan Teks dan Tombol -->
-                <div class="flex-1 rounded-2xl overflow-hidden ">
-                    <div class="flex-1 rounded-2xl overflow-hidden">
-                        <div class="relative h-[450px] bg-cover bg-center"
-                            style="background-image: url('{{ asset('assets/images/landing/tancak.png') }}');">
+                @empty
+                    <div class="flex-1 rounded-2xl overflow-hidden ">
+                        <div class="flex-1 rounded-2xl overflow-hidden">
+                            <div class="relative h-[450px] bg-cover bg-center"
+                                style="background-image: url('{{ asset('assets/images/landing/papuma.png') }}');">
+                            </div>
                         </div>
-                    </div>
-                    <div class="py-4 bg-white rounded-b-2xl overflow-hidden">
-                        <h3 class="font-losta text-2xl font-medium mb-2">Air Terjun Tancak</h3>
-                        <a href="/overview"
-                            class="mt-2 text-lg font-poppins inline-block text-white px-8 py-3 rounded-lg bg-gradient-to-r from-softPrimary to-primary hover:to-softPrimary">Selengkapnya</a>
-                    </div>
-                </div>
+                        <div class="py-4 bg-white rounded-b-2xl overflow-hidden">
+                            <h3 class="font-losta text-2xl font-medium mb-2">Papuma Beach</h3>
+                            <a href="/overview"
+                                class="mt-2 text-lg font-poppins inline-block text-white px-8 py-3 rounded-lg bg-gradient-to-r from-softPrimary to-primary hover:to-softPrimary">halo</a>
+                        </div>
+                @endforelse
 
-                <!-- Gambar Ketiga dengan Teks dan Tombol -->
-                <div class="flex-1 rounded-2xl overflow-hidden ">
-                    <div class="flex-1 rounded-2xl overflow-hidden">
-                        <div class="relative h-[450px] bg-cover bg-center"
-                            style="background-image: url('{{ asset('assets/images/landing/watu-ulo.png') }}'); ">
-                        </div>
-                    </div>
-                    <div class="py-4 bg-white rounded-b-2xl overflow-hidden">
-                        <h3 class="font-losta text-2xl font-medium mb-2">Pantai Watu Ulo</h3>
-                        <a href="/overview"
-                            class="mt-2 text-lg font-poppins inline-block text-white px-8 py-3 rounded-lg bg-gradient-to-r from-softPrimary to-primary hover:to-softPrimary">Selengkapnya</a>
-                    </div>
-                </div>
 
-                <!-- Gambar Keempat dengan Teks dan Tombol -->
-                <div class="flex-1 rounded-2xl overflow-hidden ">
-                    <div class="flex-1 rounded-2xl overflow-hidden">
-                        <div class="relative h-[450px] bg-cover bg-center"
-                            style="background-image: url('{{ asset('assets/images/landing/rembangan.png') }}');">
-                        </div>
-                    </div>
-                    <div class="py-4 bg-white rounded-b-2xl overflow-hidden">
-                        <h3 class="font-losta text-2xl font-medium mb-2">Puncak Rembangan</h3>
-                        <a href="/overview"
-                            class="mt-2 text-lg font-poppins inline-block text-white px-8 py-3 rounded-lg bg-gradient-to-r from-softPrimary to-primary hover:to-softPrimary">Selengkapnya</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

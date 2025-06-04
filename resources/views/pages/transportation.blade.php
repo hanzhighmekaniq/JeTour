@@ -1,11 +1,16 @@
 @extends('layouts.master_pages')
 
 @section('content')
-    <div class="mx-2 md:mx-5">
-        @include('components.navbar')
+    @include('components.navbar')
+    <div class="mx-4 md:mx-5 pt-16 lg:pt-0">
         @include('components.hero_pages')
-        <div class="md:mx-14 lg:mx-24 mx-5">
-            @include('components.transportation.rec_transport')
+        <div class="flex justify-center">
+            <div class="container">
+                @include('components.transportation.rec_transport')
+            </div>
         </div>
     </div>
 @endsection
+@extends('layouts.master_pages')
+
+
